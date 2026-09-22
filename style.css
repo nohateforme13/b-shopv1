@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Базовые настройки шрифтов и скролла */
+* {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  overscroll-behavior-y: none;
+}
+
+/* Скрытие полосы прокрутки для чистых мобильных слайдеров */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Анимации появление шторок и карточек */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Эффект матового стекла для модальных окон и нижней навигации */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Интерактивные состояния touch */
+button:active, .touch-feedback:active {
+  transform: scale(0.96);
+  transition: transform 0.1s ease;
+}
+
+/* Отступ для нижней фиксированной панели на iPhone (Safe Area) */
+.pb-safe {
+  padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+}
