@@ -22,7 +22,7 @@
       <!-- Поиск -->
       <div class="flex-1 max-w-md relative hidden sm:block">
         <i class="bi bi-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
-        <input type="text" id="searchInput" oninput="renderProducts()" placeholder="Поиск техники и периферии..." 
+        <input type="text" id="searchInput" oninput="renderProducts()" placeholder="Поиск техники, сертификатов и периферии..." 
                class="w-full bg-slate-100 hover:bg-slate-200/70 focus:bg-white focus:ring-2 focus:ring-blue-500 rounded-xl pl-10 pr-4 py-2 text-xs font-medium border-0 transition outline-none">
       </div>
 
@@ -33,7 +33,7 @@
           <span>+7 (707) 257-33-13</span>
         </a>
 
-        <button onclick="toggleCartModal()" class="relative bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2">
+        <button onclick="toggleCartModal(true)" class="relative bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2">
           <i class="bi bi-bag"></i>
           <span class="hidden sm:inline">Корзина</span>
           <span id="cartBadge" class="bg-blue-600 text-white rounded-full px-1.5 py-0.5 text-[10px] font-extrabold hidden">0</span>
@@ -45,7 +45,7 @@
     <div class="p-3 border-t border-slate-100 sm:hidden">
       <div class="relative">
         <i class="bi bi-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
-        <input type="text" id="mobileSearchInput" oninput="syncMobileSearch()" placeholder="Поиск гаджетов и периферии..." 
+        <input type="text" id="mobileSearchInput" oninput="syncMobileSearch()" placeholder="Поиск товаров и сертификатов..." 
                class="w-full bg-slate-100 rounded-xl pl-9 pr-4 py-2 text-xs font-medium border-0 outline-none">
       </div>
     </div>
@@ -58,11 +58,16 @@
     <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-slate-900 text-white rounded-3xl p-6 sm:p-10 mb-8 shadow-xl relative overflow-hidden">
       <div class="relative z-10 max-w-xl">
         <span class="bg-white/20 text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider mb-3 inline-block">Официальная гарантия</span>
-        <h1 class="text-2xl sm:text-4xl font-black mb-3 leading-tight">Премиальная техника и ПК-периферия</h1>
-        <p class="text-blue-100 text-xs sm:text-sm mb-6 leading-relaxed">Оригинальные гаджеты, студийные микрофоны, механические клавиатуры, игровые мыши и беспроводные зарядки. Все цены от 20 000 до 400 000 ₸.</p>
-        <a href="#catalog" class="inline-flex items-center bg-white text-slate-900 hover:bg-slate-100 px-5 py-2.5 rounded-xl font-bold text-xs transition shadow-md">
-          Перейти к каталогу <i class="bi bi-arrow-down-short text-lg ml-1"></i>
-        </a>
+        <h1 class="text-2xl sm:text-4xl font-black mb-3 leading-tight">Премиальная техника и Подарочные карты</h1>
+        <p class="text-blue-100 text-xs sm:text-sm mb-6 leading-relaxed">Оригинальные гаджеты, ПК-периферия, а также подарочные карты B-SHOP номиналом от 50 000 до 250 000 ₸.</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#catalog" class="inline-flex items-center bg-white text-slate-900 hover:bg-slate-100 px-5 py-2.5 rounded-xl font-bold text-xs transition shadow-md">
+            Перейти к каталогу <i class="bi bi-arrow-down-short text-lg ml-1"></i>
+          </a>
+          <button onclick="setCategory('certificates')" class="inline-flex items-center bg-blue-500/30 hover:bg-blue-500/40 text-white border border-white/20 px-5 py-2.5 rounded-xl font-bold text-xs transition backdrop-blur-md">
+            <i class="bi bi-gift mr-1.5"></i> Подарочные карты
+          </button>
+        </div>
       </div>
     </div>
 
@@ -73,6 +78,7 @@
       <div class="flex items-center justify-between flex-wrap gap-3">
         <div class="flex items-center space-x-1.5 overflow-x-auto pb-2 sm:pb-0 scrollbar-none text-xs font-semibold" id="categoryFilter">
           <button onclick="setCategory('all')" class="cat-btn active bg-blue-600 text-white px-3.5 py-1.5 rounded-xl transition shrink-0">Все товары</button>
+          <button onclick="setCategory('certificates')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-xl transition shrink-0 flex items-center"><i class="bi bi-gift mr-1 text-blue-600"></i> Подарочные карты</button>
           <button onclick="setCategory('peripherals')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-xl transition shrink-0">ПК-Периферия</button>
           <button onclick="setCategory('headphones')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-xl transition shrink-0">Наушники</button>
           <button onclick="setCategory('chargers')" class="cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-xl transition shrink-0">Зарядки и powerbank</button>
@@ -104,7 +110,7 @@
           <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-black text-sm">B</div>
           <span class="font-black text-white text-base">B-SHOP</span>
         </div>
-        <p class="leading-relaxed">Магазин оригинальной электроники, аксессуаров и ПК-периферии. Гарантия качества на всю продукцию.</p>
+        <p class="leading-relaxed">Магазин оригинальной электроники, аксессуаров и ПК-периферии. Подарочные сертификаты на любой праздник.</p>
       </div>
 
       <div>
@@ -113,8 +119,9 @@
           <li>ИП B-SHOP</li>
           <li>ИИН: 070430501676</li>
           <li>Адрес: г. Алматы, ул. Жибек Жолы, 106</li>
-          <li><a href="offer.html" class="text-blue-400 hover:underline">Публичная оферта и условия возврата</a></li>
-          <li><button onclick="togglePrivacyModal(true)" class="text-blue-400 hover:underline text-left">Политика конфиденциальности</button></li>
+          <li><button onclick="openLegalModal('offer')" class="text-blue-400 hover:underline text-left">Публичная оферта</button></li>
+          <li><button onclick="openLegalModal('returns')" class="text-blue-400 hover:underline text-left">Условия возврата и обмена</button></li>
+          <li><button onclick="openLegalModal('privacy')" class="text-blue-400 hover:underline text-left">Политика конфиденциальности</button></li>
         </ul>
       </div>
 
@@ -130,155 +137,387 @@
     </div>
   </footer>
 
-  <!-- МОДАЛЬНОЕ ОКНО КОРЗИНЫ -->
+  <!-- МОДАЛЬНОЕ ОКНО КОРЗИНЫ И ОФОРМЛЕНИЯ ЗАКАЗА -->
   <div id="cartModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex justify-end">
-    <div class="bg-white w-full max-w-md h-full flex flex-col shadow-2xl">
+    <div class="bg-white w-full max-w-lg h-full flex flex-col shadow-2xl">
       <div class="p-4 border-b border-slate-100 flex items-center justify-between">
-        <h3 class="font-black text-slate-900 text-base flex items-center">
+        <h3 id="modalTitle" class="font-black text-slate-900 text-base flex items-center">
           <i class="bi bi-bag-check mr-2 text-blue-600"></i> Ваша корзина
         </h3>
-        <button onclick="toggleCartModal()" class="text-slate-400 hover:text-slate-600 p-1">
+        <button onclick="toggleCartModal(false)" class="text-slate-400 hover:text-slate-600 p-1">
           <i class="bi bi-x-lg text-lg"></i>
         </button>
       </div>
 
-      <div id="cartItems" class="flex-1 overflow-y-auto p-4 space-y-4">
-        <!-- Товары корзины -->
+      <!-- ЭКРАН 1: СПИСОК ТОВАРОВ В КОРЗИНЕ -->
+      <div id="cartStep" class="flex-1 overflow-y-auto p-4 space-y-4">
+        <div id="cartItems" class="space-y-4"></div>
       </div>
 
+      <!-- ЭКРАН 2: МЕНЮ ВВОДА ДАННЫХ И ОПЛАТЫ -->
+      <div id="checkoutStep" class="flex-1 overflow-y-auto p-5 space-y-4 hidden">
+        <button onclick="showCartStep()" class="text-xs font-bold text-blue-600 hover:underline flex items-center mb-2">
+          <i class="bi bi-arrow-left mr-1"></i> Вернуться к списку товаров
+        </button>
+
+        <h4 class="font-bold text-slate-900 text-sm border-b pb-2">1. Контактные данные</h4>
+        <div class="space-y-3">
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-600 mb-1">ФИО / Имя *</label>
+            <input type="text" id="custName" placeholder="Иван Иванов" class="w-full bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-blue-500 outline-none">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-600 mb-1">Номер телефона *</label>
+            <input type="tel" id="custPhone" placeholder="+7 (707) 000-00-00" class="w-full bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-blue-500 outline-none">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-600 mb-1">Город *</label>
+            <input type="text" id="custCity" placeholder="Алматы" class="w-full bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-blue-500 outline-none">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-slate-600 mb-1">Адрес доставки (или Email для эл. карт) *</label>
+            <input type="text" id="custAddress" placeholder="Улица, дом / Email для карт" class="w-full bg-slate-100 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-blue-500 outline-none">
+          </div>
+        </div>
+
+        <h4 class="font-bold text-slate-900 text-sm border-b pb-2 pt-2">2. Способ оплаты</h4>
+        <div class="space-y-2 text-xs">
+          <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition">
+            <input type="radio" name="payMethod" value="card" checked onchange="toggleCardFields(true)" class="text-blue-600 focus:ring-blue-500">
+            <div class="flex items-center justify-between w-full">
+              <span class="font-semibold text-slate-800">Банковской картой онлайн</span>
+              <i class="bi bi-credit-card text-blue-600 text-base"></i>
+            </div>
+          </label>
+          <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition">
+            <input type="radio" name="payMethod" value="kaspi" onchange="toggleCardFields(false)" class="text-blue-600 focus:ring-blue-500">
+            <div class="flex items-center justify-between w-full">
+              <span class="font-semibold text-slate-800">Kaspi QR / Kaspi Pay</span>
+              <span class="bg-red-500 text-white font-bold text-[9px] px-1.5 py-0.5 rounded">Kaspi</span>
+            </div>
+          </label>
+          <label class="flex items-center space-x-3 p-3 border border-slate-200 rounded-xl cursor-pointer hover:bg-slate-50 transition">
+            <input type="radio" name="payMethod" value="cash" onchange="toggleCardFields(false)" class="text-blue-600 focus:ring-blue-500">
+            <div class="flex items-center justify-between w-full">
+              <span class="font-semibold text-slate-800">Наличными при получении</span>
+              <i class="bi bi-cash-stack text-slate-600 text-base"></i>
+            </div>
+          </label>
+        </div>
+
+        <!-- Поля карт при выборе онлайн оплаты -->
+        <div id="cardFields" class="p-3 bg-slate-100 rounded-xl space-y-2 text-xs mt-2">
+          <div>
+            <label class="block text-[10px] font-semibold text-slate-500 mb-1">Номер карты</label>
+            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-xs outline-none">
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-[10px] font-semibold text-slate-500 mb-1">Срок действия</label>
+              <input type="text" placeholder="ММ/ГГ" maxlength="5" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-xs outline-none">
+            </div>
+            <div>
+              <label class="block text-[10px] font-semibold text-slate-500 mb-1">CVC / CVV</label>
+              <input type="password" placeholder="123" maxlength="3" class="w-full bg-white border border-slate-200 rounded-lg px-3 py-1.5 text-xs outline-none">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ПАНЕЛЬ С ИТОГОМ -->
       <div class="p-4 border-t border-slate-100 bg-slate-50 space-y-3">
         <div class="flex justify-between items-center font-black text-slate-900 text-sm">
-          <span>Итого:</span>
-          <span id="cartTotal" class="text-blue-600">0 ₸</span>
+          <span>К оплате:</span>
+          <span id="cartTotal" class="text-blue-600 text-base">0 ₸</span>
         </div>
-        <button onclick="checkout()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-xs shadow-md transition">
-          Оформить заказ
+        
+        <button id="cartNextBtn" onclick="goToCheckout()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-xs shadow-md transition">
+          Перейти к оформлению
+        </button>
+
+        <button id="submitOrderBtn" onclick="processOrder()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl text-xs shadow-md transition hidden">
+          Оплатить и подтвердить заказ
         </button>
       </div>
     </div>
   </div>
 
-  <!-- МОДАЛЬНОЕ ОКНО ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ -->
-  <div id="privacyModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+  <!-- ЕДИНОЕ МОДАЛЬНОЕ ОКНО ДОКУМЕНТОВ С ТАБАМИ -->
+  <div id="legalModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
     <div class="bg-white w-full max-w-3xl max-h-[85vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden">
+      
+      <!-- Шапка модального окна -->
       <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
         <h3 class="font-black text-slate-900 text-base sm:text-lg flex items-center">
-          <i class="bi bi-shield-check mr-2 text-blue-600"></i> Политика конфиденциальности
+          <i class="bi bi-file-earmark-check mr-2 text-blue-600"></i> Юридические документы B-SHOP
         </h3>
-        <button onclick="togglePrivacyModal(false)" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg transition">
+        <button onclick="closeLegalModal()" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg transition">
           <i class="bi bi-x-lg text-lg"></i>
         </button>
       </div>
 
-      <div class="p-6 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
-        <p class="text-slate-500 font-medium">Дата публикации: 23 сентября 2026 г.</p>
-
-        <p class="font-medium">
-          Настоящая Политика конфиденциальности определяет порядок сбора, использования, хранения и защиты персональных данных пользователей сайта <strong>B-SHOP</strong> (далее — «Сайт»).
-        </p>
-        <p>
-          Используя Сайт, пользователь подтверждает, что ознакомился с настоящей Политикой конфиденциальности и соглашается с условиями обработки своих персональных данных в предусмотренных настоящей Политикой случаях.
-        </p>
-
-        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">1. Общие положения</h4>
-        <p>1.1. Настоящая Политика разработана в целях обеспечения защиты персональных данных пользователей Сайта.</p>
-        <p>1.2. Оператором персональных данных является <strong>ИП B-SHOP</strong>, ИИН: <strong>070430501676</strong>, адрес: <strong>г. Алматы, ул. Жибек Жолы, 106</strong>.</p>
-        <p>1.3. Оператор принимает необходимые организационные и технические меры для защиты персональных данных пользователей от неправомерного доступа, изменения, распространения, блокирования, уничтожения и иных неправомерных действий.</p>
-
-        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">2. Какие данные могут собираться</h4>
-        <p>В зависимости от характера использования Сайта могут обрабатываться следующие данные:</p>
-        <ul class="list-disc pl-5 space-y-1">
-          <li>имя и фамилия пользователя;</li>
-          <li>номер телефона;</li>
-          <li>адрес электронной почты;</li>
-          <li>адрес доставки или иные сведения, необходимые для исполнения заказа;</li>
-          <li>сведения о заказах и обращениях пользователя;</li>
-          <li>IP-адрес;</li>
-          <li>сведения о браузере, устройстве и операционной системе;</li>
-          <li>дата и время посещения Сайта;</li>
-          <li>иные сведения, которые пользователь добровольно предоставляет при использовании Сайта.</li>
-        </ul>
-        <p>Оператор не осуществляет сбор и хранение полных реквизитов банковских карт, таких как полный номер карты, срок действия и CVV/CVC-код, если обработка платежа осуществляется через стороннего платёжного провайдера.</p>
-
-        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">3. Цели обработки персональных данных</h4>
-        <p>Персональные данные могут использоваться для:</p>
-        <ul class="list-disc pl-5 space-y-1">
-          <li>обработки и исполнения заказов;</li>
-          <li>связи с пользователем;</li>
-          <li>предоставления информации о товарах и услугах;</li>
-          <li>обработки обращений и запросов;</li>
-          <li>оформления и подтверждения платежей;</li>
-          <li>предоставления клиентской поддержки;</li>
-          <li>улучшения работы и содержания Сайта;</li>
-          <li>обеспечения безопасности Сайта и предотвращения мошеннических операций;</li>
-          <li>выполнения требований законодательства Республики Казахстан;</li>
-          <li>иных целей, непосредственно связанных с деятельностью Оператора и использованием Сайта.</li>
-        </ul>
-
-        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">4. Обработка платежей</h4>
-        <p>4.1. Для осуществления оплаты на Сайте могут использоваться сторонние платёжные системы и банки.</p>
-        <p>4.2. При переходе к оплате пользователь может быть перенаправлен на защищённую страницу платёжного провайдера.</p>
-        <p>4.3. Банковские реквизиты и платёжные данные обрабатываются непосредственно соответствующим банком или платёжным провайдером в соответствии с их правилами и политиками конфиденциальности.</p>
-        <p>4.4. Оператор Сайта не хранит полные данные банковских карт пользователей, если иное прямо не предусмотрено используемым платёжным сервисом и законодательством.</p>
-
-        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">5. Передача персональных данных третьим лицам</h4>
-        <p>5.1. Оператор не продаёт и не передаёт персональные данные пользователей третьим лицам в целях, не связанных с деятельностью Сайта.</p>
-        <p>5.2. Передача данных может осуществляться в объёме, необходимом для:</p>
-        <ul class="list-disc pl-5 space-y-1">
-          <li>обработки платежей;</li>
-          <li>доставки товаров или оказания услуг;</li>
-          <li>работы технических сервисов Сайта;</li>
-          <li>предоставления клиентской поддержки;</li>
-          <li>выполнения требований государственных органов;</li>
-          <li>предотвращения мошенничества и обеспечения безопасности.</li>
-        </ul>
-        <p>5.3. При использовании сторонних сервисов обработка персональных данных осуществляется также в соответствии с правилами и политиками соответствующих сервисов.</p>
-
-        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">6. Файлы cookie</h4>
-        <p>6.1. Сайт может использовать файлы cookie и аналогичные технологии для обеспечения корректной работы Сайта, сохранения пользовательских настроек, анализа посещаемости и улучшения качества предоставляемых услуг.</p>
-        <p>6.2. Пользователь может изменить настройки использования cookie в настройках своего браузера.</p>
-
-        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">7. Хранение и защита данных</h4>
-        <p>7.1. Персональные данные хранятся в течение срока, необходимого для достижения целей их обработки, либо в течение срока, установленного законодательством Республики Казахстан.</p>
-        <p>7.2. Оператор принимает разумные и необходимые меры для защиты персональных данных от неправомерного доступа, утраты, изменения, распространения и уничтожения.</p>
-
-        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">8. Права пользователя</h4>
-        <p>Пользователь имеет право в случаях и порядке, предусмотренных законодательством Республики Казахстан:</p>
-        <ul class="list-disc pl-5 space-y-1">
-          <li>получать информацию об обработке своих персональных данных;</li>
-          <li>обращаться к Оператору по вопросам обработки персональных данных;</li>
-          <li>требовать исправления неточных данных;</li>
-          <li>отозвать согласие на обработку персональных данных, если это допускается законодательством;</li>
-          <li>требовать прекращения обработки или удаления персональных данных в случаях, предусмотренных законодательством.</li>
-        </ul>
-        <p>Для реализации своих прав пользователь может направить обращение по контактным данным, указанным ниже.</p>
-
-        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">9. Изменение Политики конфиденциальности</h4>
-        <p>Оператор вправе вносить изменения и дополнения в настоящую Политику конфиденциальности.</p>
-        <p>Актуальная версия Политики публикуется на Сайте. Новая редакция вступает в силу с момента её публикации, если иное не указано в самой редакции.</p>
-
-        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">10. Контактная информация</h4>
-        <ul class="space-y-1 font-medium text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-100">
-          <li><strong>Оператор:</strong> ИП B-SHOP</li>
-          <li><strong>ИИН:</strong> 070430501676</li>
-          <li><strong>Адрес:</strong> г. Алматы, ул. Жибек Жолы, 106</li>
-          <li><strong>Телефон:</strong> +7 (707) 257-33-13</li>
-          <li><strong>E-mail:</strong> b.shop24@gmail.com</li>
-        </ul>
-        <p>По вопросам обработки персональных данных пользователь может обратиться по указанным контактным данным.</p>
+      <!-- Вкладки -->
+      <div class="flex border-b border-slate-200 bg-slate-100/70 p-1.5 gap-1 text-xs font-bold">
+        <button id="tabBtn-offer" onclick="switchLegalTab('offer')" class="flex-1 py-2 px-3 rounded-xl transition text-center text-slate-600 hover:text-slate-900">
+          Публичная оферта
+        </button>
+        <button id="tabBtn-returns" onclick="switchLegalTab('returns')" class="flex-1 py-2 px-3 rounded-xl transition text-center text-slate-600 hover:text-slate-900">
+          Условия возврата и обмена
+        </button>
+        <button id="tabBtn-privacy" onclick="switchLegalTab('privacy')" class="flex-1 py-2 px-3 rounded-xl transition text-center text-slate-600 hover:text-slate-900">
+          Политика конфиденциальности
+        </button>
       </div>
 
-      <div class="p-4 border-t border-slate-100 bg-slate-50 flex justify-end">
-        <button onclick="togglePrivacyModal(false)" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2 rounded-xl text-xs transition">
+      <!-- Контент модального окна -->
+      <div class="p-6 overflow-y-auto flex-1 space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+        
+        <!-- ВКЛАДКА 1: ПУБЛИЧНАЯ ОФЕРТА -->
+        <div id="tabContent-offer" class="tab-content space-y-4 hidden">
+          <p class="text-slate-500 font-medium">Дата публикации: 23 сентября 2026 г.</p>
+          <p>Настоящий документ является официальным предложением ИП B-SHOP, БИН/ИИН 070430501676, именуемого в дальнейшем «Продавец», заключить договор на условиях настоящей публичной оферты с любым физическим или юридическим лицом, именуемым в дальнейшем «Покупатель».</p>
+          <p>Настоящая оферта регулирует порядок оформления заказов, оплаты, получения товаров и/или услуг, а также иные условия взаимодействия между Продавцом и Покупателем.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Общие положения</h4>
+          <p>1.1. Настоящая публичная оферта разработана в соответствии с законодательством Республики Казахстан.</p>
+          <p>1.2. Размещение настоящей Оферты на сайте b-shop.kz является публичным предложением Продавца заключить договор на условиях, изложенных в настоящей Оферте.</p>
+          <p>1.3. Покупатель принимает условия настоящей Оферты путем оформления заказа и/или совершения оплаты на Сайте.</p>
+          <p>1.4. Совершение Покупателем действий по оформлению заказа и оплате означает полное и безоговорочное принятие условий настоящей Оферты.</p>
+          <p>1.5. С момента принятия условий Оферты между Продавцом и Покупателем возникает договор на соответствующих условиях.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Информация о Продавце</h4>
+          <p>Наименование: ИП B-SHOP<br>БИН/ИИН: 070430501676<br>Адрес: г. Алматы, ул. Жибек Жолы, 106<br>Телефон: +7 (707) 257-33-13<br>E-mail: b.shop24@gmail.com</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Предмет договора</h4>
+          <p>3.1. Продавец обязуется предоставить Покупателю выбранные на Сайте товары и/или услуги, а Покупатель обязуется оплатить их в соответствии с условиями настоящей Оферты.</p>
+          <p>3.2. Наименование, описание, стоимость, количество и иные характеристики товара или услуги указываются на соответствующей странице Сайта.</p>
+          <p>3.3. Информация о товарах и услугах, размещенная на Сайте, предназначена для ознакомления Покупателя перед оформлением заказа.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Порядок оформления заказа</h4>
+          <p>4.1. Покупатель самостоятельно выбирает товар или услугу на Сайте и оформляет заказ посредством доступной формы заказа.</p>
+          <p>4.2. При оформлении заказа Покупатель предоставляет сведения, необходимые для исполнения заказа, включая имя, номер телефона, адрес электронной почты и иные необходимые данные.</p>
+          <p>4.3. Покупатель несет ответственность за достоверность предоставленных им данных.</p>
+          <p>4.4. После оформления заказа Продавец может связаться с Покупателем для подтверждения заказа или уточнения необходимых сведений.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Стоимость и порядок оплаты</h4>
+          <p>5.1. Стоимость товаров и/или услуг указывается на Сайте в соответствующей валюте.</p>
+          <p>5.2. Оплата осуществляется способами, доступными на Сайте в момент оформления заказа.</p>
+          <p>5.3. Для приема онлайн-платежей Продавец может использовать услуги банков, платежных организаций и иных платежных сервисов.</p>
+          <p>5.4. При оплате банковской картой Покупатель может быть перенаправлен на защищенную страницу соответствующего банка или платежного сервиса.</p>
+          <p>5.5. Платеж считается совершенным после подтверждения успешного проведения операции соответствующим платежным сервисом.</p>
+          <p>5.6. Продавец не хранит полные реквизиты банковской карты Покупателя, если их обработка осуществляется непосредственно банком или платежным провайдером.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Порядок оказания услуг / передачи товара</h4>
+          <p>6.1. Срок и способ предоставления товара или услуги указываются на Сайте либо согласовываются с Покупателем при оформлении заказа.</p>
+          <p>6.2. Продавец обязуется предоставить товар или услугу в соответствии с информацией, размещенной на Сайте и условиями оформленного заказа.</p>
+          <p>6.3. В случае возникновения обстоятельств, препятствующих своевременному исполнению заказа, Продавец уведомляет Покупателя доступным способом связи.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Отмена заказа и возврат денежных средств</h4>
+          <p>7.1. Покупатель вправе отказаться от заказа и/или потребовать возврата денежных средств в случаях и порядке, предусмотренных законодательством Республики Казахстан и условиями настоящей Оферты.</p>
+          <p>7.2. Для оформления возврата Покупатель направляет обращение на электронную почту b.shop24@gmail.com либо использует иные контактные данные, указанные на Сайте.</p>
+          <p>7.3. В обращении необходимо указать номер заказа, дату оплаты, контактные данные Покупателя и причину обращения.</p>
+          <p>7.4. Возврат денежных средств осуществляется тем же способом, которым была произведена оплата, если иное не предусмотрено законодательством или техническими условиями соответствующего платежного сервиса.</p>
+          <p>7.5. Срок возврата денежных средств определяется законодательством Республики Казахстан и правилами соответствующего банка или платежного сервиса.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Права и обязанности сторон</h4>
+          <p><strong>8.1. Продавец обязуется:</strong> предоставлять достоверную информацию о товарах и услугах; принимать и обрабатывать заказы; предоставлять оплаченные товары и/или услуги в соответствии с условиями заказа; обеспечивать обработку персональных данных в соответствии с Политикой конфиденциальности; рассматривать обращения Покупателей.</p>
+          <p><strong>8.2. Покупатель обязуется:</strong> предоставлять достоверную информацию при оформлении заказа; своевременно оплачивать заказ; соблюдать условия настоящей Оферты; не использовать Сайт в незаконных целях.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Ответственность сторон</h4>
+          <p>9.1. Стороны несут ответственность за неисполнение или ненадлежащее исполнение обязательств в соответствии с законодательством Республики Казахстан.</p>
+          <p>9.2. Продавец не несет ответственности за невозможность использования Сайта, возникшую по причинам, не зависящим от Продавца, включая технические сбои сторонних сервисов, банков, платежных систем и операторов связи.</p>
+          <p>9.3. Продавец не несет ответственности за предоставление Покупателем недостоверных или ошибочных данных.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Персональные данные</h4>
+          <p>10.1. При оформлении заказа Покупатель предоставляет согласие на обработку персональных данных в объеме, необходимом для исполнения заказа и предоставления услуг.</p>
+          <p>10.2. Обработка персональных данных осуществляется в соответствии с законодательством Республики Казахстан и Политикой конфиденциальности, размещенной на Сайте.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Интеллектуальная собственность</h4>
+          <p>11.1. Все материалы, размещенные на Сайте, включая тексты, изображения, логотипы, графические элементы и программные материалы, могут являться объектами интеллектуальной собственности Продавца или третьих лиц.</p>
+          <p>11.2. Использование материалов Сайта без соответствующего разрешения не допускается, за исключением случаев, предусмотренных законодательством Республики Казахстан.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Изменение условий Оферты</h4>
+          <p>12.1. Продавец вправе изменять условия настоящей Оферты.</p>
+          <p>12.2. Новая редакция Оферты вступает в силу с момента её публикации на Сайте, если иное не предусмотрено новой редакцией.</p>
+          <p>12.3. Условия Оферты, действующие на момент оформления и оплаты заказа, применяются к соответствующему заказу.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Разрешение споров</h4>
+          <p>13.1. Все споры и разногласия стороны стремятся разрешать путем переговоров и направления обращений друг другу.</p>
+          <p>13.2. В случае невозможности урегулирования спора путем переговоров спор подлежит рассмотрению в порядке, установленном законодательством Республики Казахстан.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Заключительные положения</h4>
+          <p>14.1. Настоящая Оферта действует до момента её отмены или замены новой редакцией.</p>
+          <p>14.2. Если отдельное положение настоящей Оферты признается недействительным, это не влияет на действительность остальных положений.</p>
+          <p>14.3. Оформляя заказ и/или осуществляя оплату на Сайте, Покупатель подтверждает, что ознакомился с настоящей Офертой и принимает её условия.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Реквизиты Продавца</h4>
+          <p>ИП B-SHOP, БИН/ИИН: 070430501676, Адрес: г. Алматы, ул. Жибек Жолы, 106, Телефон: +7 (707) 257-33-13, E-mail: b.shop24@gmail.com, Сайт: b-shop.kz</p>
+        </div>
+
+        <!-- ВКЛАДКА 2: УСЛОВИЯ ВОЗВРАТА И ОБМЕНА -->
+        <div id="tabContent-returns" class="tab-content space-y-4 hidden">
+          <p class="text-slate-500 font-medium">Дата публикации: 23 сентября 2026 г.</p>
+          <p>Настоящие Условия определяют порядок возврата и обмена товаров и/или отказа от услуг, приобретенных на сайте b-shop.kz.</p>
+          <p><strong>Продавец:</strong> ИП B-SHOP, БИН/ИИН: 070430501676, Адрес: г. Алматы, ул. Жибек Жолы, 106, Телефон: +7 (707) 257-33-13, E-mail: b.shop24@gmail.com</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Общие положения</h4>
+          <p>1.1. Возврат и обмен товаров, а также возврат денежных средств осуществляются в соответствии с законодательством Республики Казахстан и условиями заключенного с Покупателем договора.</p>
+          <p>1.2. Возможность возврата или обмена зависит от вида приобретенного товара или услуги, их состояния и обстоятельств обращения Покупателя.</p>
+          <p>1.3. Для оформления возврата или обмена Покупатель должен обратиться к Продавцу по контактным данным, указанным на Сайте.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Возврат товара</h4>
+          <p>2.1. Покупатель вправе обратиться с требованием о возврате товара в случаях и сроки, предусмотренные законодательством Республики Казахстан.</p>
+          <p>2.2. Если возврат товара допускается, товар должен быть возвращен в состоянии, позволяющем подтвердить факт его приобретения у Продавца.</p>
+          <p>2.3. При обращении Покупателю может потребоваться предоставить: номер заказа; документ или иные сведения, подтверждающие оплату; контактные данные; описание причины возврата; фотографии товара, если это необходимо для рассмотрения обращения.</p>
+          <p>2.4. Если товар имеет недостатки, Покупатель вправе предъявить требования, предусмотренные законодательством Республики Казахстан.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Обмен товара</h4>
+          <p>3.1. Обмен товара осуществляется в случаях и порядке, предусмотренных законодательством Республики Казахстан.</p>
+          <p>3.2. Возможность обмена зависит от характера товара, его состояния и иных обстоятельств.</p>
+          <p>3.3. Если обмен на аналогичный товар невозможен, стороны могут согласовать другой способ урегулирования вопроса в соответствии с законодательством Республики Казахстан.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Возврат денежных средств</h4>
+          <p>4.1. При наличии оснований для возврата денежных средств Продавец осуществляет возврат в установленном порядке.</p>
+          <p>4.2. Возврат денежных средств, оплаченных банковской картой или через платежную систему, производится преимущественно тем же способом, которым была произведена первоначальная оплата.</p>
+          <p>4.3. Срок фактического зачисления денежных средств на банковскую карту Покупателя может зависеть от банка-эмитента и платежной системы.</p>
+          <p>4.4. Продавец не несет ответственности за задержку зачисления денежных средств, если возврат со стороны Продавца уже был осуществлен.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Возврат при оказании услуг</h4>
+          <p>5.1. В случае приобретения услуги возможность и порядок возврата денежных средств определяются условиями конкретной услуги, настоящими Условиями, публичной офертой и законодательством Республики Казахстан.</p>
+          <p>5.2. Если услуга еще не была оказана, Покупатель может обратиться с заявлением об отмене заказа и возврате денежных средств в случаях, предусмотренных законодательством.</p>
+          <p>5.3. Если услуга уже была полностью или частично оказана, вопрос возврата рассматривается с учетом фактически оказанной услуги и требований законодательства Республики Казахстан.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Товары и услуги, не подлежащие возврату или обмену</h4>
+          <p>6.1. Отдельные категории товаров и услуг могут не подлежать возврату или обмену в случаях, установленных законодательством Республики Казахстан.</p>
+          <p>6.2. Информация об ограничениях на возврат или обмен конкретного товара или услуги предоставляется Покупателю до совершения покупки либо указывается на соответствующей странице Сайта.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Порядок обращения</h4>
+          <p>7.1. Для оформления возврата или обмена Покупатель направляет обращение: E-mail: b.shop24@gmail.com, Телефон: +7 (707) 257-33-13</p>
+          <p>7.2. В обращении рекомендуется указать: ФИО Покупателя; номер заказа; дату покупки; наименование товара или услуги; причину обращения; желаемый способ решения вопроса; контактный номер телефона или e-mail.</p>
+          <p>7.3. После получения обращения Продавец рассматривает его и связывается с Покупателем для дальнейшего урегулирования вопроса.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Сроки рассмотрения</h4>
+          <p>8.1. Обращения Покупателей рассматриваются в сроки, установленные законодательством Республики Казахстан.</p>
+          <p>8.2. При необходимости предоставления дополнительных документов или информации Продавец вправе запросить их у Покупателя.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Заключительные положения</h4>
+          <p>9.1. Настоящие Условия являются неотъемлемой частью условий продажи товаров и/или оказания услуг на Сайте.</p>
+          <p>9.2. Продавец вправе вносить изменения в настоящие Условия. Актуальная версия публикуется на Сайте.</p>
+          <p>9.3. По вопросам возврата и обмена Покупатель может обратиться по контактным данным, указанным выше.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Реквизиты Продавца</h4>
+          <p>ИП B-SHOP, БИН/ИИН: 070430501676, Адрес: г. Алматы, ул. Жибек Жолы, 106, Телефон: +7 (707) 257-33-13, E-mail: b.shop24@gmail.com</p>
+        </div>
+
+        <!-- ВКЛАДКА 3: ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ -->
+        <div id="tabContent-privacy" class="tab-content space-y-4 hidden">
+          <p class="text-slate-500 font-medium">Дата публикации: 23 сентября 2026 г.</p>
+          <p>Настоящая Политика конфиденциальности определяет порядок сбора, использования, хранения и защиты персональных данных пользователей сайта b-shop.kz (далее — «Сайт»).</p>
+          <p>Используя Сайт, пользователь подтверждает, что ознакомился с настоящей Политикой конфиденциальности и соглашается с условиями обработки своих персональных данных в предусмотренных настоящей Политикой случаях.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Общие положения</h4>
+          <p>1.1. Настоящая Политика разработана в целях обеспечения защиты персональных данных пользователей Сайта.</p>
+          <p>1.2. Оператором персональных данных является ИП B-SHOP, БИН/ИИН: 070430501676, адрес: г. Алматы, ул. Жибек Жолы, 106.</p>
+          <p>1.3. Оператор принимает необходимые организационные и технические меры для защиты персональных данных пользователей от неправомерного доступа, изменения, распространения, блокирования, уничтожения и иных неправомерных действий.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Какие данные могут собираться</h4>
+          <p>В зависимости от характера использования Сайта могут обрабатываться следующие данные:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>имя и фамилия пользователя;</li>
+            <li>номер телефона;</li>
+            <li>адрес электронной почты;</li>
+            <li>адрес доставки или иные сведения, необходимые для исполнения заказа;</li>
+            <li>сведения о заказах и обращениях пользователя;</li>
+            <li>IP-адрес;</li>
+            <li>сведения о браузере, устройстве и операционной системе;</li>
+            <li>дата и время посещения Сайта;</li>
+            <li>иные сведения, которые пользователь добровольно предоставляет при использовании Сайта.</li>
+          </ul>
+          <p>Оператор не осуществляет сбор и хранение полных реквизитов банковских карт, таких как полный номер карты, срок действия и CVV/CVC-код, если обработка платежа осуществляется через стороннего платёжного провайдера.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Цели обработки персональных данных</h4>
+          <p>Персональные данные могут использоваться для:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>обработки и исполнения заказов;</li>
+            <li>связи с пользователем;</li>
+            <li>предоставления информации о товарах и услугах;</li>
+            <li>обработки обращений и запросов;</li>
+            <li>оформления и подтверждения платежей;</li>
+            <li>предоставления клиентской поддержки;</li>
+            <li>улучшения работы и содержания Сайта;</li>
+            <li>обеспечения безопасности Сайта и предотвращения мошеннических операций;</li>
+            <li>выполнения требований законодательства Республики Казахстан;</li>
+            <li>иных целей, непосредственно связанных с деятельностью Оператора и использованием Сайта.</li>
+          </ul>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Обработка платежей</h4>
+          <p>4.1. Для осуществления оплаты на Сайте могут использоваться сторонние платёжные системы и банки.</p>
+          <p>4.2. При переходе к оплате пользователь может быть перенаправлен на защищённую страницу платёжного провайдера.</p>
+          <p>4.3. Банковские реквизиты и платёжные данные обрабатываются непосредственно соответствующим банком или платёжным провайдером в соответствии с их правилами и политиками конфиденциальности.</p>
+          <p>4.4. Оператор Сайта не хранит полные данные банковских карт пользователей, если иное прямо не предусмотрено используемым платёжным сервисом и законодательством.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Передача персональных данных третьим лицам</h4>
+          <p>5.1. Оператор не продаёт и не передаёт персональные данные пользователей третьим лицам в целях, не связанных с деятельностью Сайта.</p>
+          <p>5.2. Передача данных может осуществляться в объёме, необходимом для:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>обработки платежей;</li>
+            <li>доставки товаров или оказания услуг;</li>
+            <li>работы технических сервисов Сайта;</li>
+            <li>предоставления клиентской поддержки;</li>
+            <li>выполнения требований государственных органов;</li>
+            <li>предотвращения мошенничества и обеспечения безопасности.</li>
+          </ul>
+          <p>5.3. При использовании сторонних сервисов обработка персональных данных осуществляется также в соответствии с правилами и политиками соответствующих сервисов.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Файлы cookie</h4>
+          <p>6.1. Сайт может использовать файлы cookie и аналогичные технологии для обеспечения корректной работы Сайта, сохранения пользовательских настроек, анализа посещаемости и улучшения качества предоставляемых услуг.</p>
+          <p>6.2. Пользователь может изменить настройки использования cookie в настройках своего браузера.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Хранение и защита данных</h4>
+          <p>7.1. Персональные данные хранятся в течение срока, необходимого для достижения целей их обработки, либо в течение срока, установленного законодательством Республики Казахстан.</p>
+          <p>7.2. Оператор принимает разумные и необходимые меры для защиты персональных данных от неправомерного доступа, утраты, изменения, распространения и уничтожения.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Права пользователя</h4>
+          <p>Пользователь имеет право в случаях и порядке, предусмотренных законодательством Республики Казахстан:</p>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>получать информацию об обработке своих персональных данных;</li>
+            <li>обращаться к Оператору по вопросам обработки персональных данных;</li>
+            <li>требовать исправления неточных данных;</li>
+            <li>отозвать согласие на обработку персональных данных, если это допускается законодательством;</li>
+            <li>требовать прекращения обработки или удаления персональных данных в случаях, предусмотренных законодательством.</li>
+          </ul>
+          <p>Для реализации своих прав пользователь может направить обращение по контактным данным, указанным ниже.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Изменение Политики конфиденциальности</h4>
+          <p>Оператор вправе вносить изменения и дополнения в настоящую Политику конфиденциальности. Актуальная версия Политики публикуется на Сайте. Новая редакция вступает в силу с момента её публикации, если иное не указано в самой редакции.</p>
+
+          <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">Контактная информация</h4>
+          <p>Оператор: ИП B-SHOP<br>БИН/ИИН: 070430501676<br>Адрес: г. Алматы, ул. Жибек Жолы, 106<br>Телефон: +7 (707) 257-33-13<br>E-mail: b.shop24@gmail.com</p>
+          <p class="text-slate-500 pt-1">По вопросам обработки персональных данных пользователь может обратиться по указанным контактным данным.</p>
+        </div>
+
+      </div>
+
+      <!-- Футер модального окна -->
+      <div class="p-4 border-t border-slate-100 bg-slate-50 flex justify-between items-center text-xs">
+        <span class="text-slate-500">ИП B-SHOP | ИИН 070430501676</span>
+        <button onclick="closeLegalModal()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2 rounded-xl transition">
           Закрыть
         </button>
       </div>
     </div>
   </div>
 
-  <!-- СКРИПТ КАТАЛОГА И КОРЗИНЫ -->
+  <!-- СКРИПТ КАТАЛОГА, ОПЛАТЫ И ДОКУМЕНТОВ -->
   <script>
     const products = [
+      // ПОДАРОЧНЫЕ КАРТЫ
+      { id: 501, name: "Подарочная карта B-SHOP 50 000 ₸", category: "certificates", price: 50000, isGiftCard: true, img: "" },
+      { id: 502, name: "Подарочная карта B-SHOP 100 000 ₸", category: "certificates", price: 100000, isGiftCard: true, img: "" },
+      { id: 503, name: "Подарочная карта B-SHOP 150 000 ₸", category: "certificates", price: 150000, isGiftCard: true, img: "" },
+      { id: 504, name: "Подарочная карта B-SHOP 250 000 ₸", category: "certificates", price: 250000, isGiftCard: true, img: "" },
+
+      // ПК-ПЕРИФЕРИЯ
       { id: 101, name: "HyperX QuadCast S RGB Mic", category: "peripherals", price: 82000, img: "https://avatars.mds.yandex.net/get-mpic/4448948/img_id2562565989144240308.jpeg/orig" },
       { id: 102, name: "Shure MV7 USB Podcast Microphone", category: "peripherals", price: 135000, img: "https://upload.wikimedia.org/wikipedia/commons/9/94/Shure_MV7_microphone.jpg" },
       { id: 103, name: "Logitech MX Master 3S Wireless Mouse", category: "peripherals", price: 58000, img: "https://cdn.amerikanpaketim.com/public/67e/299/af3/67e299af30d17810631855.jpeg" },
@@ -287,40 +526,60 @@
       { id: 106, name: "Razer Huntsman V2 Analog Gaming Keyboard", category: "peripherals", price: 115000, img: "https://www.tremplin-numerique.org/wp-content/uploads/2022/05/Le-meilleur-clavier-de-jeu-de-2022-6147668..jpg" },
       { id: 107, name: "Razer Kiyo Pro Ultra 4K Webcam", category: "peripherals", price: 142000, img: "https://assets3.razerzone.com/WuS0kL-CuYrBCrvTha6EVneSKek=/1199x799/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhc6%2Fh2f%2F9466432225310%2F230105-kiyo-pro-ultra-v2-pro-1000x1500-2.jpg" },
       { id: 108, name: "Elgato Stream Deck MK.2 15 Keys", category: "peripherals", price: 88000, img: "https://www.amazona.de/wp-content/uploads/2018/07/stream_deck_device_03.png" },
+      { id: 23, name: "Razer DeathAdder V3 Pro Wireless", category: "peripherals", price: 72000, img: "https://assets2.razerzone.com/images/pnx.assets/1b54a80fb48c4d792bc49aa89201088d/razer-deathadder-v3-pro-500x500.png" },
+      { id: 30, name: "Logitech StreamCam Full HD 60fps", category: "peripherals", price: 62000, img: "https://resource.logitech.com/w_1600,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/webcams/streamcam/streamcam-gallery-1-graphite.png" },
+      { id: 31, name: "Corsair K70 PRO RGB Optical-Mechanical", category: "peripherals", price: 98000, img: "https://cwsmgmt.corsair.com/pdp/k70-pro-rgb/images/k70_pro_rgb_01.png" },
+      { id: 36, name: "Rode Wireless GO II Compact System", category: "peripherals", price: 148000, img: "https://edge.rode.com/images/page/1/modules/5361/wgoii-hero-desktop.jpg" },
+      { id: 43, name: "Asus ROG Azoth Wireless Custom Keyboard", category: "peripherals", price: 129000, img: "https://dlcdnrog.asus.com/rog/media/1672768565345.webp" },
+
+      // ЗАРЯДКИ И POWERBANK
       { id: 1, name: "Anker MagSafe Power Bank 5000mAh", category: "chargers", price: 22000, img: "https://avatars.mds.yandex.net/get-mpic/1865652/2a00000193528fb230e6e5476c85c2cdc620/orig" },
-      { id: 2, name: "Samsung Galaxy Buds2 Pro White", category: "headphones", price: 65000, img: "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23932914/DSC03286_buds_2_pro.jpg" },
-      { id: 3, name: "Marshall Emberton II Black", category: "audio", price: 85000, img: "https://apple-nova.ru/files/Screenshot_3(27).jpg" },
       { id: 4, name: "Belkin BOOST↑CHARGE 3-in-1", category: "chargers", price: 95000, img: "https://shoplineimg.com/media/66d7f485f5fc92001fb0dcce/original.webp?source_format=jpg" },
-      { id: 5, name: "Sony WH-1000XM5 Silver", category: "headphones", price: 175000, img: "https://sonycenter.md/wp-content/uploads/2022/05/wh1000xm5-multicolor.jpg" },
-      { id: 6, name: "GoPro HERO 12 Black", category: "audio", price: 190000, img: "https://www.newsshooter.com/wp-content/uploads/2023/08/HERO12-dirt-scaled.jpeg" },
-      { id: 7, name: "DJI Osmo Pocket 3 Creator Combo", category: "audio", price: 285000, img: "https://ir.ozone.ru/s3/multimedia-1-o/7346362668.jpg" },
-      { id: 8, name: "Apple AirPods Max Space Gray", category: "headphones", price: 295000, img: "https://u-mercari-images.mercdn.net/photos/m37142841783_3.jpg" },
-      { id: 9, name: "Steam Deck OLED 512GB", category: "audio", price: 330000, img: "https://avatars.mds.yandex.net/get-mpic/5344732/2a00000192678a538deb75559ef00e72a01c/orig" },
-      { id: 10, name: "Apple Watch Ultra 2 Titanium", category: "watches", price: 395000, img: "https://avatars.mds.yandex.net/get-mpic/16417891/2a0000019ad0be8423978f49a6f7bbadcdf9/orig" },
       { id: 11, name: "Apple 20W USB-C Power Adapter", category: "chargers", price: 20000, img: "https://techtest.org/wp-content/uploads/2020/10/Der-Apple-20W-USB-C-Power-Adapter-im-Test-A2347-1.jpg" },
       { id: 12, name: "Samsung 45W Fast Charger Duo", category: "chargers", price: 24000, img: "https://i0.wp.com/ae-pic-a1.aliexpress-media.com/kf/Sc31e18817e8541f2b8d13b4e8d99ea927.png" },
-      { id: 13, name: "Xiaomi Mi Band 8 Pro", category: "watches", price: 32000, img: "https://ir.ozone.ru/s3/multimedia-r/6729566031.jpg" },
-      { id: 14, name: "JBL Clip 4 Eco Bluetooth", category: "audio", price: 35000, img: "https://cdn.kanobu.ru/articles/pics/41d20bf2-e2b8-4669-9ae7-5517927afeb5.jpg" },
       { id: 15, name: "Baseus Blade 100W Power Bank 20000mAh", category: "chargers", price: 38000, img: "https://click-or-die.ru/app/uploads/2023/03/1bcd2c3b896272d7d57018577e3faab8.jpg" },
-      { id: 16, name: "Anker Soundcore Space A40", category: "headphones", price: 42000, img: "https://comicbook.com/wp-content/uploads/sites/4/2025/09/anker-space-A40-earbuds-banner.png" },
-      { id: 17, name: "Amazfit GTR 4 Smartwatch", category: "watches", price: 78000, img: "https://images.expertreviews.co.uk/wp-content/uploads/2022/09/amazfit_gtr_4_-_hero.jpg" },
-      { id: 18, name: "Nothing Ear (2) Transparent", category: "headphones", price: 68000, img: "https://ifdalivestorage.blob.core.windows.net/user-uploads/1117126/647452/f0ea7a80-c51f-4df0-bd2d-e629aebf6159/elev_azu_bl_010.jpg" },
-      { id: 20, name: "JBL Charge 5 Wi-Fi Black", category: "audio", price: 92000, img: "https://www.allround-pc.com/wp-content/uploads/2023/07/JBL-Charge-5-WIFI-WLAN-Lautsprecher-Audio-Test-Review-5.jpg" },
-      { id: 21, name: "Samsung Galaxy Watch6 44mm", category: "watches", price: 115000, img: "https://centrkom174.ru/wp-content/uploads/2026/06/1c1e61166ed311f1ba847085c279b9b8_25c82ab66fa811f1ba847085c279b9b8.jpg" },
-      { id: 22, name: "Apple AirPods Pro 2 USB-C", category: "headphones", price: 125000, img: "https://www.iphones.ru/wp-content/uploads/2022/09/DSCF9466.jpg" },
-      { id: 24, name: "Garmin Forerunner 265 Music", category: "watches", price: 185000, img: "https://cdn.mos.cms.futurecdn.net/4Sqfiw6U9LggaVXc9ZDVvB.jpg" },
-      { id: 25, name: "Bose QuietComfort Ultra Headphones", category: "headphones", price: 210000, img: "https://spl.ru/upload/iblock/d92/403j9l19lderdmzifuafps3o1ez136al/bose_quietcomfort_ultra_headphones_2_gen_desert_gold_201.jpg" },
-      { id: 26, name: "Apple Watch Series 9 GPS 45mm", category: "watches", price: 215000, img: "https://i.ytimg.com/vi/o1ji0HPrzyM/maxresdefault.jpg" },
-      { id: 27, name: "Insta360 X3 Action Camera", category: "audio", price: 235000, img: "https://images.squarespace-cdn.com/content/v1/6625a243ba87ed44a92a7a90/36792799-e790-471a-94ab-47be565b2153/360X3.jpg" },
-      { id: 28, name: "Sennheiser Momentum 4 Wireless", category: "headphones", price: 165000, img: "https://cdn0.vox-cdn.com/hermano/verge/product/image/9938/DSCF8639-2.jpg" },
       { id: 29, name: "Anker 737 Power Bank 24000mAh", category: "chargers", price: 75000, img: "https://www.log.com.tr/wp-content/uploads/2024/04/Anker-737-2551.jpg" },
       { id: 32, name: "Apple MagSafe Duo Charger", category: "chargers", price: 68000, img: "https://ir.ozone.ru/s3/multimedia-i/c600/6648131214.jpg" },
-      { id: 33, name: "Garmin Fenix 7 Pro Sapphire", category: "watches", price: 380000, img: "https://magazin-sportlife.ru/uploads/images/2024/01/dd9f9a358b2fc1ef5ca1c8318c436650-lg.jpg" },
-      { id: 34, name: "Bose SoundLink Flex Blue", category: "audio", price: 69000, img: "https://doctorhead.ru/upload/iblock/255/6559aybmkuk41kedfmx0todzuquhikcz/2nd_Gen_wilight_Blue_4.jpg" },
-      { id: 35, name: "JBL Tour ONE M2 Headphones", category: "headphones", price: 110000, img: "https://cdn.mos.cms.futurecdn.net/HFJmRsfMr5vk84ZJAYAbgM.jpg" },
+      { id: 37, name: "Anker Prime 20000mAh 200W Power Bank", category: "chargers", price: 89000, img: "https://m.media-amazon.com/images/I/61S4fH5c1vL._AC_SL1500_.jpg" },
       { id: 42, name: "Ugreen Nexode 100W GaN Charger", category: "chargers", price: 34000, img: "https://cdn.eteknix.com/wp-content/uploads/2023/09/NEXODE1.jpg" },
+      { id: 45, name: "Baseus Magnetic Wireless Charger 15W", category: "chargers", price: 21000, img: "https://m.media-amazon.com/images/I/61WfB3O0JXL._AC_SL1500_.jpg" },
+
+      // НАУШНИКИ
+      { id: 2, name: "Samsung Galaxy Buds2 Pro White", category: "headphones", price: 65000, img: "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23932914/DSC03286_buds_2_pro.jpg" },
+      { id: 5, name: "Sony WH-1000XM5 Silver", category: "headphones", price: 175000, img: "https://sonycenter.md/wp-content/uploads/2022/05/wh1000xm5-multicolor.jpg" },
+      { id: 8, name: "Apple AirPods Max Space Gray", category: "headphones", price: 295000, img: "https://u-mercari-images.mercdn.net/photos/m37142841783_3.jpg" },
+      { id: 16, name: "Anker Soundcore Space A40", category: "headphones", price: 42000, img: "https://comicbook.com/wp-content/uploads/sites/4/2025/09/anker-space-A40-earbuds-banner.png" },
+      { id: 18, name: "Nothing Ear (2) Transparent", category: "headphones", price: 68000, img: "https://ifdalivestorage.blob.core.windows.net/user-uploads/1117126/647452/f0ea7a80-c51f-4df0-bd2d-e629aebf6159/elev_azu_bl_010.jpg" },
+      { id: 19, name: "SteelSeries Arctis Nova Pro Wireless", category: "headphones", price: 189000, img: "https://cdn.shopify.com/s/files/1/0533/2089/files/Arctis_Nova_Pro_Wireless_P_01_1024x1024.jpg" },
+      { id: 22, name: "Apple AirPods Pro 2 USB-C", category: "headphones", price: 125000, img: "https://www.iphones.ru/wp-content/uploads/2022/09/DSCF9466.jpg" },
+      { id: 25, name: "Bose QuietComfort Ultra Headphones", category: "headphones", price: 210000, img: "https://spl.ru/upload/iblock/d92/403j9l19lderdmzifuafps3o1ez136al/bose_quietcomfort_ultra_headphones_2_gen_desert_gold_201.jpg" },
+      { id: 28, name: "Sennheiser Momentum 4 Wireless", category: "headphones", price: 165000, img: "https://cdn0.vox-cdn.com/hermano/verge/product/image/9938/DSCF8639-2.jpg" },
+      { id: 35, name: "JBL Tour ONE M2 Headphones", category: "headphones", price: 110000, img: "https://cdn.mos.cms.futurecdn.net/HFJmRsfMr5vk84ZJAYAbgM.jpg" },
+      { id: 39, name: "Sony WF-C700N Wireless Noise-Canceling", category: "headphones", price: 49000, img: "https://m.media-amazon.com/images/I/51pQe4z1GGL._AC_SL1200_.jpg" },
       { id: 44, name: "Beats Studio Pro Wireless Navy", category: "headphones", price: 155000, img: "https://www.stuff.tv/wp-content/uploads/sites/2/2023/07/StudioPro_Lifestyle_Blue_PS3136_RGB_v3.jpg" },
-      { id: 46, name: "Sony WF-1000XM5 TWS Noise Cancelling", category: "headphones", price: 138000, img: "https://suomimobiili.fi/wp-content/uploads/2023/07/sony-wf-1000xm5-6.png" }
+      { id: 46, name: "Sony WF-1000XM5 TWS Noise Cancelling", category: "headphones", price: 138000, img: "https://suomimobiili.fi/wp-content/uploads/2023/07/sony-wf-1000xm5-6.png" },
+
+      // СМАРТ-ЧАСЫ
+      { id: 10, name: "Apple Watch Ultra 2 Titanium", category: "watches", price: 395000, img: "https://avatars.mds.yandex.net/get-mpic/16417891/2a0000019ad0be8423978f49a6f7bbadcdf9/orig" },
+      { id: 13, name: "Xiaomi Mi Band 8 Pro", category: "watches", price: 32000, img: "https://ir.ozone.ru/s3/multimedia-r/6729566031.jpg" },
+      { id: 17, name: "Amazfit GTR 4 Smartwatch", category: "watches", price: 78000, img: "https://images.expertreviews.co.uk/wp-content/uploads/2022/09/amazfit_gtr_4_-_hero.jpg" },
+      { id: 21, name: "Samsung Galaxy Watch6 44mm", category: "watches", price: 115000, img: "https://centrkom174.ru/wp-content/uploads/2026/06/1c1e61166ed311f1ba847085c279b9b8_25c82ab66fa811f1ba847085c279b9b8.jpg" },
+      { id: 24, name: "Garmin Forerunner 265 Music", category: "watches", price: 185000, img: "https://cdn.mos.cms.futurecdn.net/4Sqfiw6U9LggaVXc9ZDVvB.jpg" },
+      { id: 26, name: "Apple Watch Series 9 GPS 45mm", category: "watches", price: 215000, img: "https://i.ytimg.com/vi/o1ji0HPrzyM/maxresdefault.jpg" },
+      { id: 33, name: "Garmin Fenix 7 Pro Sapphire", category: "watches", price: 380000, img: "https://magazin-sportlife.ru/uploads/images/2024/01/dd9f9a358b2fc1ef5ca1c8318c436650-lg.jpg" },
+      { id: 38, name: "Samsung Galaxy Watch6 Classic 47mm", category: "watches", price: 165000, img: "https://images.samsung.com/is/image/samsung/p6pim/ru/2307/gallery/ru-galaxy-watch6-classic-r960-sm-r960nzkaser-537424698" },
+
+      // АКУСТИКА И ФОТО
+      { id: 3, name: "Marshall Emberton II Black", category: "audio", price: 85000, img: "https://apple-nova.ru/files/Screenshot_3(27).jpg" },
+      { id: 6, name: "GoPro HERO 12 Black", category: "audio", price: 190000, img: "https://www.newsshooter.com/wp-content/uploads/2023/08/HERO12-dirt-scaled.jpeg" },
+      { id: 7, name: "DJI Osmo Pocket 3 Creator Combo", category: "audio", price: 285000, img: "https://ir.ozone.ru/s3/multimedia-1-o/7346362668.jpg" },
+      { id: 9, name: "Steam Deck OLED 512GB", category: "audio", price: 330000, img: "https://avatars.mds.yandex.net/get-mpic/5344732/2a00000192678a538deb75559ef00e72a01c/orig" },
+      { id: 14, name: "JBL Clip 4 Eco Bluetooth", category: "audio", price: 35000, img: "https://cdn.kanobu.ru/articles/pics/41d20bf2-e2b8-4669-9ae7-5517927afeb5.jpg" },
+      { id: 20, name: "JBL Charge 5 Wi-Fi Black", category: "audio", price: 92000, img: "https://www.allround-pc.com/wp-content/uploads/2023/07/JBL-Charge-5-WIFI-WLAN-Lautsprecher-Audio-Test-Review-5.jpg" },
+      { id: 27, name: "Insta360 X3 Action Camera", category: "audio", price: 235000, img: "https://images.squarespace-cdn.com/content/v1/6625a243ba87ed44a92a7a90/36792799-e790-471a-94ab-47be565b2153/360X3.jpg" },
+      { id: 34, name: "Bose SoundLink Flex Blue", category: "audio", price: 69000, img: "https://doctorhead.ru/upload/iblock/255/6559aybmkuk41kedfmx0todzuquhikcz/2nd_Gen_wilight_Blue_4.jpg" },
+      { id: 40, name: "Marshall Acton III Bluetooth Speaker", category: "audio", price: 145000, img: "https://m.media-amazon.com/images/I/718LqE1E62L._AC_SL1500_.jpg" },
+      { id: 41, name: "DJI Mini 3 Pro Fly More Combo", category: "audio", price: 375000, img: "https://m.media-amazon.com/images/I/61Sip5rZcLL._AC_SL1500_.jpg" }
     ];
 
     let cart = JSON.parse(localStorage.getItem('bshop_cart')) || [];
@@ -346,10 +605,28 @@
       }
 
       grid.innerHTML = filtered.map(p => `
-        <div class="bg-white rounded-2xl border border-slate-200/80 p-3 sm:p-4 flex flex-col justify-between hover:shadow-lg transition duration-200 group">
+        <div class="bg-white rounded-2xl border border-slate-200/80 p-3 sm:p-4 flex flex-col justify-between hover:shadow-lg transition duration-200 group relative ${p.isGiftCard ? 'border-blue-400 bg-gradient-to-b from-blue-50/30 to-white' : ''}">
+          ${p.isGiftCard ? '<span class="absolute top-3 left-3 z-10 bg-blue-600 text-white text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full shadow-sm"><i class="bi bi-gift-fill mr-1"></i> Сертификат</span>' : ''}
           <div>
-            <div class="aspect-square bg-slate-100 rounded-xl overflow-hidden mb-3 relative">
-              <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+            <div class="aspect-square bg-slate-100 rounded-xl overflow-hidden mb-3 relative flex items-center justify-center">
+              ${p.isGiftCard ? `
+                <div class="w-full h-full bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-950 p-4 text-white flex flex-col justify-between relative overflow-hidden group-hover:scale-105 transition duration-300">
+                  <div class="flex justify-between items-center z-10">
+                    <span class="font-black text-sm tracking-tight">B-SHOP</span>
+                    <i class="bi bi-wifi text-base text-blue-400"></i>
+                  </div>
+                  <div class="z-10 text-center my-2">
+                    <p class="text-[10px] font-bold text-blue-300 uppercase tracking-widest">GIFT CARD</p>
+                    <p class="text-xl font-black text-amber-400">${p.price.toLocaleString()} ₸</p>
+                  </div>
+                  <div class="z-10 flex justify-between items-end text-[8px] font-mono text-slate-400">
+                    <span>**** **** **** 2026</span>
+                    <span class="text-blue-300">GIFT CARD</span>
+                  </div>
+                </div>
+              ` : `
+                <img src="${p.img}" alt="${p.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              `}
             </div>
             <h3 class="font-bold text-slate-800 text-xs sm:text-sm line-clamp-2 mb-1">${p.name}</h3>
           </div>
@@ -368,7 +645,11 @@
       document.querySelectorAll('.cat-btn').forEach(btn => {
         btn.className = "cat-btn bg-white text-slate-600 hover:bg-slate-100 border border-slate-200 px-3.5 py-1.5 rounded-xl transition shrink-0";
       });
-      event.target.className = "cat-btn active bg-blue-600 text-white px-3.5 py-1.5 rounded-xl transition shrink-0";
+      
+      const activeBtn = Array.from(document.querySelectorAll('.cat-btn')).find(b => b.getAttribute('onclick').includes(`'${cat}'`));
+      if (activeBtn) {
+        activeBtn.className = "cat-btn active bg-blue-600 text-white px-3.5 py-1.5 rounded-xl transition shrink-0";
+      }
       renderProducts();
     }
 
@@ -407,6 +688,7 @@
       if (cart.length === 0) {
         cartItems.innerHTML = `<p class="text-center text-slate-400 text-xs py-8">Ваша корзина пуста</p>`;
         cartTotal.innerText = '0 ₸';
+        showCartStep();
         return;
       }
 
@@ -416,7 +698,14 @@
         return `
           <div class="flex items-center justify-between border-b border-slate-100 pb-3">
             <div class="flex items-center space-x-3">
-              <img src="${item.img}" class="w-12 h-12 object-cover rounded-lg">
+              ${item.isGiftCard ? `
+                <div class="w-12 h-12 bg-slate-900 rounded-lg flex flex-col justify-center items-center text-amber-400 font-bold text-[9px]">
+                  <span>GIFT</span>
+                  <span>CARD</span>
+                </div>
+              ` : `
+                <img src="${item.img}" class="w-12 h-12 object-cover rounded-lg">
+              `}
               <div>
                 <h4 class="font-bold text-slate-800 text-xs max-w-[150px] truncate">${item.name}</h4>
                 <p class="text-slate-500 text-[11px]">${item.price.toLocaleString()} ₸</p>
@@ -445,23 +734,80 @@
 
     function toggleCartModal(show) {
       const modal = document.getElementById('cartModal');
-      if (show === true) modal.classList.remove('hidden');
-      else if (show === false) modal.classList.add('hidden');
-      else modal.classList.toggle('hidden');
+      if (show === true) {
+        modal.classList.remove('hidden');
+        showCartStep();
+      } else if (show === false) {
+        modal.classList.add('hidden');
+      } else {
+        modal.classList.toggle('hidden');
+      }
     }
 
-    function togglePrivacyModal(show) {
-      const modal = document.getElementById('privacyModal');
-      if (show) modal.classList.remove('hidden');
-      else modal.classList.add('hidden');
+    function showCartStep() {
+      document.getElementById('cartStep').classList.remove('hidden');
+      document.getElementById('checkoutStep').classList.add('hidden');
+      document.getElementById('cartNextBtn').classList.remove('hidden');
+      document.getElementById('submitOrderBtn').classList.add('hidden');
+      document.getElementById('modalTitle').innerHTML = `<i class="bi bi-bag-check mr-2 text-blue-600"></i> Ваша корзина`;
     }
 
-    function checkout() {
-      if (cart.length === 0) return alert('Корзина пуста');
-      alert('Заказ успешно оформлен! Наш менеджер свяжется с вами.');
+    function goToCheckout() {
+      if (cart.length === 0) return alert('Ваша корзина пуста');
+      document.getElementById('cartStep').classList.add('hidden');
+      document.getElementById('checkoutStep').classList.remove('hidden');
+      document.getElementById('cartNextBtn').classList.add('hidden');
+      document.getElementById('submitOrderBtn').classList.remove('hidden');
+      document.getElementById('modalTitle').innerHTML = `<i class="bi bi-card-heading mr-2 text-blue-600"></i> Оформление заказа`;
+    }
+
+    function toggleCardFields(show) {
+      const fields = document.getElementById('cardFields');
+      if (show) fields.classList.remove('hidden');
+      else fields.classList.add('hidden');
+    }
+
+    function processOrder() {
+      const name = document.getElementById('custName').value.trim();
+      const phone = document.getElementById('custPhone').value.trim();
+      const city = document.getElementById('custCity').value.trim();
+      const addr = document.getElementById('custAddress').value.trim();
+
+      if (!name || !phone || !city || !addr) {
+        return alert('Пожалуйста, заполните все обязательные поля!');
+      }
+
+      alert('Спасибо за заказ! Оплата принята, наш менеджер свяжется с вами.');
       cart = [];
       updateCart();
       toggleCartModal(false);
+    }
+
+    // УПРАВЛЕНИЕ ТАБАМИ И МОДАЛЬНЫМ ОКНОМ ДОКУМЕНТОВ
+    function openLegalModal(tabName) {
+      document.getElementById('legalModal').classList.remove('hidden');
+      switchLegalTab(tabName);
+    }
+
+    function closeLegalModal() {
+      document.getElementById('legalModal').classList.add('hidden');
+    }
+
+    function switchLegalTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      
+      ['offer', 'returns', 'privacy'].forEach(t => {
+        const btn = document.getElementById(`tabBtn-${t}`);
+        if (btn) {
+          btn.className = "flex-1 py-2 px-3 rounded-xl transition text-center text-slate-600 hover:text-slate-900";
+        }
+      });
+
+      const activeContent = document.getElementById(`tabContent-${tabName}`);
+      const activeBtn = document.getElementById(`tabBtn-${tabName}`);
+
+      if (activeContent) activeContent.classList.remove('hidden');
+      if (activeBtn) activeBtn.className = "flex-1 py-2 px-3 rounded-xl transition text-center bg-white text-blue-600 shadow-sm font-black";
     }
 
     renderProducts();
