@@ -111,9 +111,10 @@
         <h4 class="font-bold text-white mb-3">Юридическая информация</h4>
         <ul class="space-y-2">
           <li>ИП B-SHOP</li>
-          <li>БИН / ИИН: 070430501676</li>
+          <li>ИИН: 070430501676</li>
           <li>Адрес: г. Алматы, ул. Жибек Жолы, 106</li>
           <li><a href="offer.html" class="text-blue-400 hover:underline">Публичная оферта и условия возврата</a></li>
+          <li><button onclick="togglePrivacyModal(true)" class="text-blue-400 hover:underline text-left">Политика конфиденциальности</button></li>
         </ul>
       </div>
 
@@ -157,11 +158,127 @@
     </div>
   </div>
 
+  <!-- МОДАЛЬНОЕ ОКНО ПОЛИТИКИ КОНФИДЕНЦИАЛЬНОСТИ -->
+  <div id="privacyModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-white w-full max-w-3xl max-h-[85vh] rounded-2xl flex flex-col shadow-2xl overflow-hidden">
+      <div class="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50">
+        <h3 class="font-black text-slate-900 text-base sm:text-lg flex items-center">
+          <i class="bi bi-shield-check mr-2 text-blue-600"></i> Политика конфиденциальности
+        </h3>
+        <button onclick="togglePrivacyModal(false)" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg transition">
+          <i class="bi bi-x-lg text-lg"></i>
+        </button>
+      </div>
+
+      <div class="p-6 overflow-y-auto space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+        <p class="text-slate-500 font-medium">Дата публикации: 23 сентября 2026 г.</p>
+
+        <p class="font-medium">
+          Настоящая Политика конфиденциальности определяет порядок сбора, использования, хранения и защиты персональных данных пользователей сайта <strong>B-SHOP</strong> (далее — «Сайт»).
+        </p>
+        <p>
+          Используя Сайт, пользователь подтверждает, что ознакомился с настоящей Политикой конфиденциальности и соглашается с условиями обработки своих персональных данных в предусмотренных настоящей Политикой случаях.
+        </p>
+
+        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">1. Общие положения</h4>
+        <p>1.1. Настоящая Политика разработана в целях обеспечения защиты персональных данных пользователей Сайта.</p>
+        <p>1.2. Оператором персональных данных является <strong>ИП B-SHOP</strong>, ИИН: <strong>070430501676</strong>, адрес: <strong>г. Алматы, ул. Жибек Жолы, 106</strong>.</p>
+        <p>1.3. Оператор принимает необходимые организационные и технические меры для защиты персональных данных пользователей от неправомерного доступа, изменения, распространения, блокирования, уничтожения и иных неправомерных действий.</p>
+
+        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">2. Какие данные могут собираться</h4>
+        <p>В зависимости от характера использования Сайта могут обрабатываться следующие данные:</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>имя и фамилия пользователя;</li>
+          <li>номер телефона;</li>
+          <li>адрес электронной почты;</li>
+          <li>адрес доставки или иные сведения, необходимые для исполнения заказа;</li>
+          <li>сведения о заказах и обращениях пользователя;</li>
+          <li>IP-адрес;</li>
+          <li>сведения о браузере, устройстве и операционной системе;</li>
+          <li>дата и время посещения Сайта;</li>
+          <li>иные сведения, которые пользователь добровольно предоставляет при использовании Сайта.</li>
+        </ul>
+        <p>Оператор не осуществляет сбор и хранение полных реквизитов банковских карт, таких как полный номер карты, срок действия и CVV/CVC-код, если обработка платежа осуществляется через стороннего платёжного провайдера.</p>
+
+        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">3. Цели обработки персональных данных</h4>
+        <p>Персональные данные могут использоваться для:</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>обработки и исполнения заказов;</li>
+          <li>связи с пользователем;</li>
+          <li>предоставления информации о товарах и услугах;</li>
+          <li>обработки обращений и запросов;</li>
+          <li>оформления и подтверждения платежей;</li>
+          <li>предоставления клиентской поддержки;</li>
+          <li>улучшения работы и содержания Сайта;</li>
+          <li>обеспечения безопасности Сайта и предотвращения мошеннических операций;</li>
+          <li>выполнения требований законодательства Республики Казахстан;</li>
+          <li>иных целей, непосредственно связанных с деятельностью Оператора и использованием Сайта.</li>
+        </ul>
+
+        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">4. Обработка платежей</h4>
+        <p>4.1. Для осуществления оплаты на Сайте могут использоваться сторонние платёжные системы и банки.</p>
+        <p>4.2. При переходе к оплате пользователь может быть перенаправлен на защищённую страницу платёжного провайдера.</p>
+        <p>4.3. Банковские реквизиты и платёжные данные обрабатываются непосредственно соответствующим банком или платёжным провайдером в соответствии с их правилами и политиками конфиденциальности.</p>
+        <p>4.4. Оператор Сайта не хранит полные данные банковских карт пользователей, если иное прямо не предусмотрено используемым платёжным сервисом и законодательством.</p>
+
+        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">5. Передача персональных данных третьим лицам</h4>
+        <p>5.1. Оператор не продаёт и не передаёт персональные данные пользователей третьим лицам в целях, не связанных с деятельностью Сайта.</p>
+        <p>5.2. Передача данных может осуществляться в объёме, необходимом для:</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>обработки платежей;</li>
+          <li>доставки товаров или оказания услуг;</li>
+          <li>работы технических сервисов Сайта;</li>
+          <li>предоставления клиентской поддержки;</li>
+          <li>выполнения требований государственных органов;</li>
+          <li>предотвращения мошенничества и обеспечения безопасности.</li>
+        </ul>
+        <p>5.3. При использовании сторонних сервисов обработка персональных данных осуществляется также в соответствии с правилами и политиками соответствующих сервисов.</p>
+
+        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">6. Файлы cookie</h4>
+        <p>6.1. Сайт может использовать файлы cookie и аналогичные технологии для обеспечения корректной работы Сайта, сохранения пользовательских настроек, анализа посещаемости и улучшения качества предоставляемых услуг.</p>
+        <p>6.2. Пользователь может изменить настройки использования cookie в настройках своего браузера.</p>
+
+        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">7. Хранение и защита данных</h4>
+        <p>7.1. Персональные данные хранятся в течение срока, необходимого для достижения целей их обработки, либо в течение срока, установленного законодательством Республики Казахстан.</p>
+        <p>7.2. Оператор принимает разумные и необходимые меры для защиты персональных данных от неправомерного доступа, утраты, изменения, распространения и уничтожения.</p>
+
+        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">8. Права пользователя</h4>
+        <p>Пользователь имеет право в случаях и порядке, предусмотренных законодательством Республики Казахстан:</p>
+        <ul class="list-disc pl-5 space-y-1">
+          <li>получать информацию об обработке своих персональных данных;</li>
+          <li>обращаться к Оператору по вопросам обработки персональных данных;</li>
+          <li>требовать исправления неточных данных;</li>
+          <li>отозвать согласие на обработку персональных данных, если это допускается законодательством;</li>
+          <li>требовать прекращения обработки или удаления персональных данных в случаях, предусмотренных законодательством.</li>
+        </ul>
+        <p>Для реализации своих прав пользователь может направить обращение по контактным данным, указанным ниже.</p>
+
+        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">9. Изменение Политики конфиденциальности</h4>
+        <p>Оператор вправе вносить изменения и дополнения в настоящую Политику конфиденциальности.</p>
+        <p>Актуальная версия Политики публикуется на Сайте. Новая редакция вступает в силу с момента её публикации, если иное не указано в самой редакции.</p>
+
+        <h4 class="font-bold text-slate-900 text-sm sm:text-base pt-2">10. Контактная информация</h4>
+        <ul class="space-y-1 font-medium text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-100">
+          <li><strong>Оператор:</strong> ИП B-SHOP</li>
+          <li><strong>ИИН:</strong> 070430501676</li>
+          <li><strong>Адрес:</strong> г. Алматы, ул. Жибек Жолы, 106</li>
+          <li><strong>Телефон:</strong> +7 (707) 257-33-13</li>
+          <li><strong>E-mail:</strong> b.shop24@gmail.com</li>
+        </ul>
+        <p>По вопросам обработки персональных данных пользователь может обратиться по указанным контактным данным.</p>
+      </div>
+
+      <div class="p-4 border-t border-slate-100 bg-slate-50 flex justify-end">
+        <button onclick="togglePrivacyModal(false)" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2 rounded-xl text-xs transition">
+          Закрыть
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- СКРИПТ КАТАЛОГА И КОРЗИНЫ -->
   <script>
-    // МАССИВ ТОВАРОВ ВКЛЮЧАЯ ПК-ПЕРИФЕРИЮ (ЦЕНЫ 20 000 - 400 000 ₸)
     const products = [
-      // --- ПК-ПЕРИФЕРИЯ (Микрофоны, Мыши, Клавиатуры) ---
       { id: 101, name: "HyperX QuadCast S RGB Mic", category: "peripherals", price: 82000, img: "https://avatars.mds.yandex.net/get-mpic/4448948/img_id2562565989144240308.jpeg/orig" },
       { id: 102, name: "Shure MV7 USB Podcast Microphone", category: "peripherals", price: 135000, img: "https://upload.wikimedia.org/wikipedia/commons/9/94/Shure_MV7_microphone.jpg" },
       { id: 103, name: "Logitech MX Master 3S Wireless Mouse", category: "peripherals", price: 58000, img: "https://cdn.amerikanpaketim.com/public/67e/299/af3/67e299af30d17810631855.jpeg" },
@@ -170,8 +287,6 @@
       { id: 106, name: "Razer Huntsman V2 Analog Gaming Keyboard", category: "peripherals", price: 115000, img: "https://www.tremplin-numerique.org/wp-content/uploads/2022/05/Le-meilleur-clavier-de-jeu-de-2022-6147668..jpg" },
       { id: 107, name: "Razer Kiyo Pro Ultra 4K Webcam", category: "peripherals", price: 142000, img: "https://assets3.razerzone.com/WuS0kL-CuYrBCrvTha6EVneSKek=/1199x799/https%3A%2F%2Fmedias-p1.phoenix.razer.com%2Fsys-master-phoenix-images-container%2Fhc6%2Fh2f%2F9466432225310%2F230105-kiyo-pro-ultra-v2-pro-1000x1500-2.jpg" },
       { id: 108, name: "Elgato Stream Deck MK.2 15 Keys", category: "peripherals", price: 88000, img: "https://www.amazona.de/wp-content/uploads/2018/07/stream_deck_device_03.png" },
-
-      // --- ГАДЖЕТЫ И АКСЕССУАРЫ ---
       { id: 1, name: "Anker MagSafe Power Bank 5000mAh", category: "chargers", price: 22000, img: "https://avatars.mds.yandex.net/get-mpic/1865652/2a00000193528fb230e6e5476c85c2cdc620/orig" },
       { id: 2, name: "Samsung Galaxy Buds2 Pro White", category: "headphones", price: 65000, img: "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/23932914/DSC03286_buds_2_pro.jpg" },
       { id: 3, name: "Marshall Emberton II Black", category: "audio", price: 85000, img: "https://apple-nova.ru/files/Screenshot_3(27).jpg" },
@@ -335,6 +450,12 @@
       else modal.classList.toggle('hidden');
     }
 
+    function togglePrivacyModal(show) {
+      const modal = document.getElementById('privacyModal');
+      if (show) modal.classList.remove('hidden');
+      else modal.classList.add('hidden');
+    }
+
     function checkout() {
       if (cart.length === 0) return alert('Корзина пуста');
       alert('Заказ успешно оформлен! Наш менеджер свяжется с вами.');
@@ -343,7 +464,6 @@
       toggleCartModal(false);
     }
 
-    // Инициализация
     renderProducts();
     updateCart();
   </script>
