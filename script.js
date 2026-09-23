@@ -1,158 +1,114 @@
-// ==================== БАЗА ТОВАРОВ (Все товары от 20 000 ₸) ====================
+// ==================== БАЗА ТОВАРОВ (Диапазон 20 000 — 400 000 ₸) ====================
 const products = [
-  // --- Зарядные станции и устройства ---
+  // До 50 000 ₸
   {
     id: 1,
-    name: "Зарядное устройство GaN 100W MultiPort",
-    category: "chargers",
+    name: "Быстрая зарядка GaN 120W MultiStation",
+    category: "stations",
     price: 24500,
-    oldPrice: 28000,
-    rating: 4.9,
+    rating: 4.8,
     image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80",
-    description: "Мощное сетевое GaN-зарядное устройство 100 Вт с 4 портами (3x Type-C, 1x USB-A) для быстрой зарядки MacBook Pro и смартфонов."
+    description: "Компактный 4-портовый адаптер GaN для мощных ноутбуков и нескольких смартфонов."
   },
   {
     id: 2,
-    name: "Беспроводной Power Bank MagSafe 20000 mAh",
-    category: "chargers",
-    price: 22900,
-    oldPrice: 26000,
-    rating: 4.8,
-    image: "https://images.unsplash.com/photo-1609592424074-1218525b6c0b?auto=format&fit=crop&w=500&q=80",
-    description: "Внешний аккумулятор с мощными магнитами MagSafe, дисплеем уровня заряда и сквозной быстрой зарядкой 22.5 Вт."
+    name: "TWS Наушники Studio Buds Pro",
+    category: "audio",
+    price: 38900,
+    rating: 4.9,
+    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=500&q=80",
+    description: "Беспроводные наушники с пространственным звуком и быстрой подзарядкой."
   },
+
+  // 50 000 — 100 000 ₸
   {
     id: 3,
-    name: "Быстрая беспроводная станция 3-в-1 MagSafe",
+    name: "Док-станция MagSafe 3-in-1 Aluminium Studio",
     category: "stations",
-    price: 27800,
-    oldPrice: 32000,
+    price: 64000,
     rating: 4.9,
     image: "https://images.unsplash.com/photo-1609592424074-1218525b6c0b?auto=format&fit=crop&w=500&q=80",
-    description: "Премиальная алюминиевая подставка для одновременной беспроводной зарядки iPhone, Apple Watch и AirPods."
+    description: "Премиальная подставка из цельного авиационного алюминия для устройств Apple."
   },
   {
     id: 4,
-    name: "Настольная умная док-станция со спреем и LED",
-    category: "stations",
-    price: 31500,
-    oldPrice: 36000,
-    rating: 4.7,
-    image: "https://images.unsplash.com/photo-1609592424074-1218525b6c0b?auto=format&fit=crop&w=500&q=80",
-    description: "Многофункциональная станция 4-в-1 с беспроводной зарядкой 15 Вт, часами, будильником и подсветкой."
+    name: "Портативная акустика BoomBox Pro 60W IPX7",
+    category: "audio",
+    price: 89000,
+    rating: 4.8,
+    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=500&q=80",
+    description: "Мощная влагозащищенная колонка с объемным глубоким басом и 24 часами автономности."
   },
 
-  // --- Аудио и акустика ---
+  // 100 000 — 200 000 ₸
   {
     id: 5,
-    name: "Беспроводные наушники Pro ANC Space",
+    name: "Полноразмерные Hi-Fi Наушники ANC Master",
     category: "audio",
-    price: 34900,
-    oldPrice: 42000,
+    price: 145000,
     rating: 4.9,
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80",
-    description: "Наушники с активным гибридным шумоподавлением (-42 дБ), автопаузой и автономностью до 40 часов."
+    description: "Флагманские наушники с гибридным активным шумоподавлением и титановыми драйверами."
   },
   {
     id: 6,
-    name: "Полноразмерные Bluetooth наушники Studio Pro",
-    category: "audio",
-    price: 39900,
-    oldPrice: 48000,
+    name: "Смарт-часы Ultra Titanium GPS Cellular",
+    category: "watches",
+    price: 185000,
     rating: 4.9,
-    image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=500&q=80",
-    description: "Студийный звук Hi-Res Audio, амбушюры из эффектом памяти и поддержка кодека LDAC."
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80",
+    description: "Часы в титановом защищенном корпусе с сапфировым стеклом и точностью GPS 6-го поколения."
   },
+
+  // 200 000 — 400 000 ₸
   {
     id: 7,
-    name: "Портативная акустика SoundPulse 40W IPX7",
+    name: "Домашняя Акустическая Система Soundbar 5.1 Cinema",
     category: "audio",
-    price: 29500,
-    oldPrice: 35000,
-    rating: 4.8,
-    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=500&q=80",
-    description: "Мощная влагозащищенная колонка с пассивными излучателями баса и динамическим световым шоу."
+    price: 295000,
+    rating: 5.0,
+    image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=500&q=80",
+    description: "Премиальный домашний саундбар с беспроводным сабвуфером и поддержкой Dolby Atmos."
   },
   {
     id: 8,
-    name: "Беспроводная микрофонная система 2-в-1",
-    category: "audio",
-    price: 26400,
-    oldPrice: 31000,
-    rating: 4.8,
-    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=500&q=80",
-    description: "Двойной петличный радиомикрофон с кейсом-аккумулятором для записи интервью, блогов и контента."
-  },
-
-  // --- Смарт-часы ---
-  {
-    id: 9,
-    name: "Смарт-часы Watch 8 Ultra Titanium",
+    name: "Смарт-часы Chrono Executive Sapphire Gold",
     category: "watches",
-    price: 38900,
-    oldPrice: 45000,
-    rating: 4.9,
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80",
-    description: "Корпус из титанового сплава, сапфировое стекло, AMOLED экран 2.02 дюйма, барометр и звонки по Bluetooth."
-  },
-  {
-    id: 10,
-    name: "Смарт-часы Elegance Pro AMOLED",
-    category: "watches",
-    price: 28500,
-    oldPrice: 33000,
-    rating: 4.7,
+    price: 385000,
+    rating: 5.0,
     image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?auto=format&fit=crop&w=500&q=80",
-    description: "Классический круглый корпус, Always-On Display, измерение пульса, ЭКГ и 100+ циферблатов."
-  },
-
-  // --- Авто и гаджеты ---
-  {
-    id: 11,
-    name: "Автомобильный держатель MagSafe 15W с охлаждением",
-    category: "gadgets",
-    price: 21900,
-    oldPrice: 25000,
-    rating: 4.8,
-    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=80",
-    description: "Автомобильный держатель в воздуховод с встроенным элементом Пельтье для предотвращения перегрева телефона."
-  },
-  {
-    id: 12,
-    name: "Кольцевой светодиодный комплект 36см + Штатив 2m",
-    category: "gadgets",
-    price: 23500,
-    oldPrice: 27000,
-    rating: 4.8,
-    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=80",
-    description: "Профессиональный студийный свет с дистанционным пультом управления и 3 держателями для смартфона."
+    description: "Элитный смарт-хронограф с отделкой золотыми элементами и полным мониторингом здоровья."
   }
 ];
 
-// Дополняем список аналогичными товарами от 20 000 KZT
-for (let i = 13; i <= 45; i++) {
-  const cat = ['chargers', 'audio', 'watches', 'stations', 'gadgets'][i % 5];
-  const price = 20000 + (i * 750);
+// Генерация еще 37 уникальных товаров с ценами в диапазоне от 20 000 до 400 000 ₸
+const names = ["Умный гаджет", "Смарт-устройство", "Зарядная система", "Акустический модуль", "Хронограф"];
+const categories = ["audio", "watches", "stations", "gadgets"];
+
+for (let i = 9; i <= 45; i++) {
+  const cat = categories[i % categories.length];
+  // Генерация разброса цен от 20,000 до 400,000 ₸
+  const generatedPrice = Math.floor(20000 + (i / 45) * 370000 + (Math.random() * 5000));
+  const roundedPrice = Math.round(generatedPrice / 100) * 100;
+
   products.push({
     id: i,
-    name: `Премиум гаджет B-SHOP Pro Series #${i}`,
+    name: `B-SHOP ${names[i % names.length]} Series X-${i}`,
     category: cat,
-    price: price,
-    oldPrice: price + 4000,
-    rating: (4.5 + (i % 5) * 0.1).toFixed(1),
+    price: roundedPrice,
+    rating: (4.4 + (i % 6) * 0.1).toFixed(1),
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80",
-    description: "Оригинальное сертифицированное устройство B-SHOP с официальной гарантией и доставкой по Казахстану."
+    description: "Оригинальная сертифицированная продукция с гарантией качества и быстрой доставкой по Алматы и Казахстану."
   });
 }
 
-// ==================== СОСТОЯНИЕ ПРИЛОЖЕНИЯ ====================
+// СОСТОЯНИЕ
 let cart = JSON.parse(localStorage.getItem('bshop_cart')) || [];
 let favorites = JSON.parse(localStorage.getItem('bshop_favs')) || [];
 let activeCategory = 'all';
 let searchQuery = '';
 let currentSort = 'default';
 
-// ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   updateCartBadge();
@@ -171,7 +127,6 @@ function setupEventListeners() {
   });
 }
 
-// ==================== РЕНДЕР ТОВАРОВ ====================
 function renderProducts() {
   const container = document.getElementById('productsGrid');
   if (!container) return;
@@ -224,7 +179,6 @@ function renderProducts() {
   }).join('');
 }
 
-// ==================== ФИЛЬТРАЦИЯ КАТЕГОРИЙ ====================
 function filterCategory(cat) {
   activeCategory = cat;
   document.querySelectorAll('.category-btn').forEach(btn => {
@@ -236,7 +190,6 @@ function filterCategory(cat) {
   renderProducts();
 }
 
-// ==================== МОДАЛЬНОЕ ОКНО ТОВАРА ====================
 function openProductModal(id) {
   const p = products.find(item => item.id === id);
   if (!p) return;
@@ -259,7 +212,6 @@ function closeProductModal() {
   document.getElementById('productModal').classList.add('hidden');
 }
 
-// ==================== ИЗБРАННОЕ ====================
 function toggleFav(id) {
   if (favorites.includes(id)) {
     favorites = favorites.filter(favId => favId !== id);
@@ -272,7 +224,6 @@ function toggleFav(id) {
   renderProducts();
 }
 
-// ==================== КОРЗИНА ====================
 function addToCart(id) {
   const existing = cart.find(item => item.id === id);
   if (existing) {
@@ -364,7 +315,6 @@ function renderCartModal() {
   document.getElementById('cartTotalPrice').innerText = `${total.toLocaleString()} ₸`;
 }
 
-// ==================== ОФОРМЛЕНИЕ И ПРОВЕРКА СОГЛАСИЯ ====================
 function openCheckout() {
   closeCartModal();
   const total = cart.reduce((sum, item) => {
@@ -394,7 +344,6 @@ function handleCheckoutSubmit(e) {
   document.getElementById('paymentModal').classList.remove('hidden');
 }
 
-// ==================== ОПЛАТА ====================
 function closePaymentModal() {
   document.getElementById('paymentModal').classList.add('hidden');
 }
@@ -423,17 +372,16 @@ function processPayment(e) {
   closePaymentModal();
   cart = [];
   saveCart();
-  showToast("🎉 Заказ оплачен! Менеджер свяжется с вами.");
+  showToast("🎉 Заказ успешно оплачен!");
 }
 
-// ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
 function switchTab(tab) {
   if (tab === 'home') {
     activeCategory = 'all';
     renderProducts();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } else {
-    showToast("Раздел доступен в мобильной версии");
+    showToast("Раздел сохранен");
   }
 }
 
