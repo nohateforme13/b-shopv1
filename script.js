@@ -1,25 +1,158 @@
-// Базовые товары
+// ==================== БАЗА ТОВАРОВ (Все товары от 20 000 ₸) ====================
 const products = [
-  { id: 1, name: 'iPhone 15 Pro 128GB', category: 'phones', price: 549900, oldPrice: 589900, rating: 4.9, reviews: 128, badge: 'Хит', img: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=500&q=80', desc: 'Флагманский смартфон с титановым корпусом, чипом A17 Pro и мощной системой камер.' },
-  { id: 2, name: 'Samsung Galaxy S24 Ultra', category: 'phones', price: 599900, oldPrice: null, rating: 4.8, reviews: 95, badge: 'Новинка', img: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=500&q=80', desc: 'Смартфон с искусственным интеллектом Galaxy AI, 200 Мп камерой и встроенным пером S Pen.' },
-  { id: 3, name: 'MacBook Air 13 M2', category: 'laptops', price: 579900, oldPrice: 620000, rating: 4.9, reviews: 84, badge: '-7%', img: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=500&q=80', desc: 'Ультратонкий ноутбук на базе процессора Apple M2 с аккумулятором до 18 часов работы.' },
-  { id: 4, name: 'AirPods Pro 2 USB-C', category: 'audio', price: 129900, oldPrice: 145000, rating: 4.9, reviews: 210, badge: 'Топ', img: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=500&q=80', desc: 'Беспроводные наушники с активным шумоподавлением и адаптивным аудио.' },
-  { id: 5, name: 'Apple Watch Series 9', category: 'watches', price: 219900, oldPrice: null, rating: 4.7, reviews: 62, badge: null, img: 'https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=500&q=80', desc: 'Умные часы с процессором S9, жестовым управлением двойным касанием и датчиками здоровья.' },
-  { id: 6, name: 'Sony PlayStation 5 Slim', category: 'gadgets', price: 279900, oldPrice: 299900, rating: 5.0, reviews: 310, badge: 'Хит', img: 'https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=500&q=80', desc: 'Игровая консоль с графикой 4K, ультрабыстрым SSD и геймпадом DualSense.' }
+  // --- Зарядные станции и устройства ---
+  {
+    id: 1,
+    name: "Зарядное устройство GaN 100W MultiPort",
+    category: "chargers",
+    price: 24500,
+    oldPrice: 28000,
+    rating: 4.9,
+    image: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&w=500&q=80",
+    description: "Мощное сетевое GaN-зарядное устройство 100 Вт с 4 портами (3x Type-C, 1x USB-A) для быстрой зарядки MacBook Pro и смартфонов."
+  },
+  {
+    id: 2,
+    name: "Беспроводной Power Bank MagSafe 20000 mAh",
+    category: "chargers",
+    price: 22900,
+    oldPrice: 26000,
+    rating: 4.8,
+    image: "https://images.unsplash.com/photo-1609592424074-1218525b6c0b?auto=format&fit=crop&w=500&q=80",
+    description: "Внешний аккумулятор с мощными магнитами MagSafe, дисплеем уровня заряда и сквозной быстрой зарядкой 22.5 Вт."
+  },
+  {
+    id: 3,
+    name: "Быстрая беспроводная станция 3-в-1 MagSafe",
+    category: "stations",
+    price: 27800,
+    oldPrice: 32000,
+    rating: 4.9,
+    image: "https://images.unsplash.com/photo-1609592424074-1218525b6c0b?auto=format&fit=crop&w=500&q=80",
+    description: "Премиальная алюминиевая подставка для одновременной беспроводной зарядки iPhone, Apple Watch и AirPods."
+  },
+  {
+    id: 4,
+    name: "Настольная умная док-станция со спреем и LED",
+    category: "stations",
+    price: 31500,
+    oldPrice: 36000,
+    rating: 4.7,
+    image: "https://images.unsplash.com/photo-1609592424074-1218525b6c0b?auto=format&fit=crop&w=500&q=80",
+    description: "Многофункциональная станция 4-в-1 с беспроводной зарядкой 15 Вт, часами, будильником и подсветкой."
+  },
+
+  // --- Аудио и акустика ---
+  {
+    id: 5,
+    name: "Беспроводные наушники Pro ANC Space",
+    category: "audio",
+    price: 34900,
+    oldPrice: 42000,
+    rating: 4.9,
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80",
+    description: "Наушники с активным гибридным шумоподавлением (-42 дБ), автопаузой и автономностью до 40 часов."
+  },
+  {
+    id: 6,
+    name: "Полноразмерные Bluetooth наушники Studio Pro",
+    category: "audio",
+    price: 39900,
+    oldPrice: 48000,
+    rating: 4.9,
+    image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=500&q=80",
+    description: "Студийный звук Hi-Res Audio, амбушюры из эффектом памяти и поддержка кодека LDAC."
+  },
+  {
+    id: 7,
+    name: "Портативная акустика SoundPulse 40W IPX7",
+    category: "audio",
+    price: 29500,
+    oldPrice: 35000,
+    rating: 4.8,
+    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=500&q=80",
+    description: "Мощная влагозащищенная колонка с пассивными излучателями баса и динамическим световым шоу."
+  },
+  {
+    id: 8,
+    name: "Беспроводная микрофонная система 2-в-1",
+    category: "audio",
+    price: 26400,
+    oldPrice: 31000,
+    rating: 4.8,
+    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=500&q=80",
+    description: "Двойной петличный радиомикрофон с кейсом-аккумулятором для записи интервью, блогов и контента."
+  },
+
+  // --- Смарт-часы ---
+  {
+    id: 9,
+    name: "Смарт-часы Watch 8 Ultra Titanium",
+    category: "watches",
+    price: 38900,
+    oldPrice: 45000,
+    rating: 4.9,
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80",
+    description: "Корпус из титанового сплава, сапфировое стекло, AMOLED экран 2.02 дюйма, барометр и звонки по Bluetooth."
+  },
+  {
+    id: 10,
+    name: "Смарт-часы Elegance Pro AMOLED",
+    category: "watches",
+    price: 28500,
+    oldPrice: 33000,
+    rating: 4.7,
+    image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?auto=format&fit=crop&w=500&q=80",
+    description: "Классический круглый корпус, Always-On Display, измерение пульса, ЭКГ и 100+ циферблатов."
+  },
+
+  // --- Авто и гаджеты ---
+  {
+    id: 11,
+    name: "Автомобильный держатель MagSafe 15W с охлаждением",
+    category: "gadgets",
+    price: 21900,
+    oldPrice: 25000,
+    rating: 4.8,
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=80",
+    description: "Автомобильный держатель в воздуховод с встроенным элементом Пельтье для предотвращения перегрева телефона."
+  },
+  {
+    id: 12,
+    name: "Кольцевой светодиодный комплект 36см + Штатив 2m",
+    category: "gadgets",
+    price: 23500,
+    oldPrice: 27000,
+    rating: 4.8,
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=80",
+    description: "Профессиональный студийный свет с дистанционным пультом управления и 3 держателями для смартфона."
+  }
 ];
 
-// Состояние приложения
-let state = {
-  cart: JSON.parse(localStorage.getItem('cart_items') || '[]'),
-  favorites: JSON.parse(localStorage.getItem('fav_items') || '[]'),
-  category: 'all',
-  searchQuery: '',
-  sort: 'default',
-  currentTab: 'home',
-  activeProduct: null
-};
+// Дополняем список аналогичными товарами от 20 000 KZT
+for (let i = 13; i <= 45; i++) {
+  const cat = ['chargers', 'audio', 'watches', 'stations', 'gadgets'][i % 5];
+  const price = 20000 + (i * 750);
+  products.push({
+    id: i,
+    name: `Премиум гаджет B-SHOP Pro Series #${i}`,
+    category: cat,
+    price: price,
+    oldPrice: price + 4000,
+    rating: (4.5 + (i % 5) * 0.1).toFixed(1),
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80",
+    description: "Оригинальное сертифицированное устройство B-SHOP с официальной гарантией и доставкой по Казахстану."
+  });
+}
 
-// Инициализация
+// ==================== СОСТОЯНИЕ ПРИЛОЖЕНИЯ ====================
+let cart = JSON.parse(localStorage.getItem('bshop_cart')) || [];
+let favorites = JSON.parse(localStorage.getItem('bshop_favs')) || [];
+let activeCategory = 'all';
+let searchQuery = '';
+let currentSort = 'default';
+
+// ==================== ИНИЦИАЛИЗАЦИЯ ====================
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts();
   updateCartBadge();
@@ -28,66 +161,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function setupEventListeners() {
   document.getElementById('searchInput').addEventListener('input', (e) => {
-    state.searchQuery = e.target.value.toLowerCase();
+    searchQuery = e.target.value.toLowerCase();
     renderProducts();
   });
 
   document.getElementById('sortSelect').addEventListener('change', (e) => {
-    state.sort = e.target.value;
+    currentSort = e.target.value;
     renderProducts();
   });
 }
 
-// Рендер каталога
+// ==================== РЕНДЕР ТОВАРОВ ====================
 function renderProducts() {
   const container = document.getElementById('productsGrid');
-  let filtered = products.filter(p => {
-    const matchesCat = state.category === 'all' || p.category === state.category;
-    const matchesSearch = p.name.toLowerCase().includes(state.searchQuery);
-    return matchesCat && matchesSearch;
+  if (!container) return;
+
+  let filtered = products.filter(product => {
+    const matchesCategory = activeCategory === 'all' || product.category === activeCategory;
+    const matchesSearch = product.name.toLowerCase().includes(searchQuery);
+    return matchesCategory && matchesSearch;
   });
 
-  if (state.sort === 'price-asc') filtered.sort((a, b) => a.price - b.price);
-  if (state.sort === 'price-desc') filtered.sort((a, b) => b.price - a.price);
-  if (state.sort === 'rating') filtered.sort((a, b) => b.rating - a.rating);
-
-  if (filtered.length === 0) {
-    container.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400">
-      <i class="bi bi-search text-4xl block mb-2"></i>
-      <p>Ничего не найдено</p>
-    </div>`;
-    return;
+  if (currentSort === 'price-asc') {
+    filtered.sort((a, b) => a.price - b.price);
+  } else if (currentSort === 'price-desc') {
+    filtered.sort((a, b) => b.price - a.price);
+  } else if (currentSort === 'rating') {
+    filtered.sort((a, b) => b.rating - a.rating);
   }
 
   container.innerHTML = filtered.map(product => {
-    const isFav = state.favorites.includes(product.id);
+    const isFav = favorites.includes(product.id);
     return `
-      <div class="bg-white rounded-2xl p-3 border border-slate-100 shadow-sm hover:shadow-md transition relative flex flex-col justify-between">
-        ${product.badge ? `<span class="absolute top-3 left-3 bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10">${product.badge}</span>` : ''}
-        
-        <button onclick="toggleFavorite(${product.id})" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center z-10">
-          <i class="bi ${isFav ? 'bi-heart-fill text-red-500' : 'bi-heart text-slate-400'} text-sm"></i>
+      <div class="bg-white rounded-2xl p-2.5 shadow-sm border border-slate-100 flex flex-col justify-between relative group">
+        <button onclick="toggleFav(${product.id})" class="absolute top-4 right-4 z-10 w-7 h-7 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-xs shadow-sm">
+          <i class="bi ${isFav ? 'bi-heart-fill text-red-500' : 'bi-heart text-slate-400'}"></i>
         </button>
-
-        <div onclick="openProductModal(${product.id})" class="cursor-pointer">
-          <div class="w-full h-36 rounded-xl bg-slate-50 overflow-hidden mb-3">
-            <img src="${product.img}" alt="${product.name}" class="w-full h-full object-cover">
+        
+        <div onclick="openProductModal(${product.id})" class="cursor-pointer space-y-2">
+          <div class="w-full h-32 bg-slate-50 rounded-xl overflow-hidden relative">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
           </div>
-          <div class="flex items-center space-x-1 mb-1">
-            <i class="bi bi-star-fill text-amber-400 text-xs"></i>
-            <span class="text-xs font-semibold text-slate-700">${product.rating}</span>
-            <span class="text-[10px] text-slate-400">(${product.reviews})</span>
+          <div>
+            <div class="flex items-center space-x-1 text-[10px] text-amber-500 font-semibold mb-0.5">
+              <i class="bi bi-star-fill"></i>
+              <span>${product.rating}</span>
+            </div>
+            <h4 class="text-xs font-semibold text-slate-800 line-clamp-2 leading-tight">${product.name}</h4>
           </div>
-          <h3 class="font-semibold text-xs sm:text-sm text-slate-800 line-clamp-2 leading-snug mb-2">${product.name}</h3>
         </div>
 
-        <div class="pt-2 border-t border-slate-50 flex items-center justify-between">
+        <div class="pt-2 mt-2 border-t border-slate-50 flex items-center justify-between">
           <div>
-            <p class="font-bold text-sm sm:text-base text-slate-900">${product.price.toLocaleString()} ₸</p>
-            ${product.oldPrice ? `<p class="text-[10px] text-slate-400 line-through">${product.oldPrice.toLocaleString()} ₸</p>` : ''}
+            <span class="text-xs font-black text-slate-900">${product.price.toLocaleString()} ₸</span>
           </div>
-          <button onclick="addToCart(${product.id})" class="w-9 h-9 rounded-xl bg-blue-600 text-white flex items-center justify-center active:scale-95 transition">
-            <i class="bi bi-bag-plus text-base"></i>
+          <button onclick="addToCart(${product.id})" class="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white flex items-center justify-center text-sm transition active:scale-95">
+            <i class="bi bi-bag-plus"></i>
           </button>
         </div>
       </div>
@@ -95,37 +224,27 @@ function renderProducts() {
   }).join('');
 }
 
-// Избранное
-function toggleFavorite(id) {
-  if (state.favorites.includes(id)) {
-    state.favorites = state.favorites.filter(favId => favId !== id);
-  } else {
-    state.favorites.push(id);
-  }
-  localStorage.setItem('fav_items', JSON.stringify(state.favorites));
-  renderProducts();
-}
-
-// Фильтры категорий
+// ==================== ФИЛЬТРАЦИЯ КАТЕГОРИЙ ====================
 function filterCategory(cat) {
-  state.category = cat;
+  activeCategory = cat;
   document.querySelectorAll('.category-btn').forEach(btn => {
-    btn.classList.remove('bg-blue-600', 'text-white', 'shadow-blue-200');
+    btn.classList.remove('bg-blue-600', 'text-white');
     btn.classList.add('bg-slate-100', 'text-slate-600');
   });
   event.currentTarget.classList.remove('bg-slate-100', 'text-slate-600');
-  event.currentTarget.classList.add('bg-blue-600', 'text-white', 'shadow-blue-200');
+  event.currentTarget.classList.add('bg-blue-600', 'text-white');
   renderProducts();
 }
 
-// Модальное окно товара
+// ==================== МОДАЛЬНОЕ ОКНО ТОВАРА ====================
 function openProductModal(id) {
-  const p = products.find(prod => prod.id === id);
-  state.activeProduct = p;
-  document.getElementById('modalProductImg').src = p.img;
+  const p = products.find(item => item.id === id);
+  if (!p) return;
+
+  document.getElementById('modalProductImg').src = p.image;
   document.getElementById('modalProductTitle').innerText = p.name;
   document.getElementById('modalProductPrice').innerText = `${p.price.toLocaleString()} ₸`;
-  document.getElementById('modalProductDesc').innerText = p.desc;
+  document.getElementById('modalProductDesc').innerText = p.description;
 
   const btn = document.getElementById('modalAddToCartBtn');
   btn.onclick = () => {
@@ -140,47 +259,59 @@ function closeProductModal() {
   document.getElementById('productModal').classList.add('hidden');
 }
 
-// Корзина
-function addToCart(id) {
-  const existing = state.cart.find(item => item.id === id);
-  if (existing) {
-    existing.count += 1;
+// ==================== ИЗБРАННОЕ ====================
+function toggleFav(id) {
+  if (favorites.includes(id)) {
+    favorites = favorites.filter(favId => favId !== id);
+    showToast("Удалено из избранного");
   } else {
-    const product = products.find(p => p.id === id);
-    state.cart.push({ ...product, count: 1 });
+    favorites.push(id);
+    showToast("Добавлено в избранное");
   }
-  saveCart();
-  showToast('Товар добавлен в корзину');
+  localStorage.setItem('bshop_favs', JSON.stringify(favorites));
+  renderProducts();
 }
 
-function updateCartCount(id, delta) {
-  const item = state.cart.find(i => i.id === id);
-  if (!item) return;
-  item.count += delta;
-  if (item.count <= 0) {
-    state.cart = state.cart.filter(i => i.id !== id);
+// ==================== КОРЗИНА ====================
+function addToCart(id) {
+  const existing = cart.find(item => item.id === id);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ id, qty: 1 });
+  }
+  saveCart();
+  showToast("Товар добавлен в корзину");
+}
+
+function updateCartQty(id, delta) {
+  const item = cart.find(i => i.id === id);
+  if (item) {
+    item.qty += delta;
+    if (item.qty <= 0) {
+      cart = cart.filter(i => i.id !== id);
+    }
   }
   saveCart();
   renderCartModal();
 }
 
 function saveCart() {
-  localStorage.setItem('cart_items', JSON.stringify(state.cart));
+  localStorage.setItem('bshop_cart', JSON.stringify(cart));
   updateCartBadge();
 }
 
 function updateCartBadge() {
-  const totalCount = state.cart.reduce((sum, i) => sum + i.count, 0);
   const badge = document.getElementById('cartBadge');
-  if (totalCount > 0) {
-    badge.innerText = totalCount;
+  const count = cart.reduce((sum, item) => sum + item.qty, 0);
+  if (count > 0) {
+    badge.innerText = count;
     badge.classList.remove('hidden');
   } else {
     badge.classList.add('hidden');
   }
 }
 
-// Выдвижная корзина
 function openCartModal() {
   renderCartModal();
   document.getElementById('cartModal').classList.remove('hidden');
@@ -194,12 +325,13 @@ function renderCartModal() {
   const container = document.getElementById('cartItemsContainer');
   const footer = document.getElementById('cartFooter');
 
-  if (state.cart.length === 0) {
+  if (cart.length === 0) {
     container.innerHTML = `
-      <div class="text-center py-12 text-slate-400">
-        <i class="bi bi-bag-x text-5xl mb-3 block"></i>
-        <p class="text-sm font-medium">Ваша корзина пуста</p>
-      </div>`;
+      <div class="text-center py-8 text-slate-400 space-y-2">
+        <i class="bi bi-bag-x text-4xl"></i>
+        <p class="text-xs font-medium">Ваша корзина пуста</p>
+      </div>
+    `;
     footer.classList.add('hidden');
     return;
   }
@@ -207,20 +339,23 @@ function renderCartModal() {
   footer.classList.remove('hidden');
   let total = 0;
 
-  container.innerHTML = state.cart.map(item => {
-    const sum = item.price * item.count;
-    total += sum;
+  container.innerHTML = cart.map(cartItem => {
+    const p = products.find(item => item.id === cartItem.id);
+    if (!p) return '';
+    const itemTotal = p.price * cartItem.qty;
+    total += itemTotal;
+
     return `
-      <div class="flex items-center space-x-3 bg-slate-50 p-3 rounded-xl">
-        <img src="${item.img}" class="w-14 h-14 object-cover rounded-lg bg-white">
+      <div class="flex items-center space-x-3 bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+        <img src="${p.image}" class="w-14 h-14 object-cover rounded-lg">
         <div class="flex-1 min-w-0">
-          <h4 class="font-semibold text-xs text-slate-800 truncate">${item.name}</h4>
-          <p class="font-bold text-xs text-blue-600 mt-0.5">${item.price.toLocaleString()} ₸</p>
+          <h5 class="text-xs font-semibold text-slate-800 truncate">${p.name}</h5>
+          <span class="text-xs font-bold text-blue-600">${p.price.toLocaleString()} ₸</span>
         </div>
-        <div class="flex items-center space-x-2 bg-white px-2 py-1 rounded-lg border border-slate-200">
-          <button onclick="updateCartCount(${item.id}, -1)" class="text-slate-500 font-bold px-1">-</button>
-          <span class="text-xs font-semibold">${item.count}</span>
-          <button onclick="updateCartCount(${item.id}, 1)" class="text-slate-500 font-bold px-1">+</button>
+        <div class="flex items-center space-x-2 bg-white px-2 py-1 rounded-lg border shadow-sm">
+          <button onclick="updateCartQty(${p.id}, -1)" class="text-slate-500 font-bold px-1 text-xs">-</button>
+          <span class="text-xs font-bold w-4 text-center">${cartItem.qty}</span>
+          <button onclick="updateCartQty(${p.id}, 1)" class="text-slate-500 font-bold px-1 text-xs">+</button>
         </div>
       </div>
     `;
@@ -229,10 +364,14 @@ function renderCartModal() {
   document.getElementById('cartTotalPrice').innerText = `${total.toLocaleString()} ₸`;
 }
 
-// Переход к оформлению
+// ==================== ОФОРМЛЕНИЕ И ПРОВЕРКА СОГЛАСИЯ ====================
 function openCheckout() {
   closeCartModal();
-  const total = state.cart.reduce((sum, item) => sum + (item.price * item.count), 0);
+  const total = cart.reduce((sum, item) => {
+    const p = products.find(prod => prod.id === item.id);
+    return sum + (p ? p.price * item.qty : 0);
+  }, 0);
+
   document.getElementById('checkoutTotal').innerText = `${total.toLocaleString()} ₸`;
   document.getElementById('checkoutModal').classList.remove('hidden');
 }
@@ -241,52 +380,63 @@ function closeCheckoutModal() {
   document.getElementById('checkoutModal').classList.add('hidden');
 }
 
-// Оплата
-function openPayment() {
+function handleCheckoutSubmit(e) {
+  e.preventDefault();
+  const checkPrivacy = document.getElementById('checkPrivacy').checked;
+  const checkOffer = document.getElementById('checkOffer').checked;
+
+  if (!checkPrivacy || !checkOffer) {
+    showToast("Необходимо принять оферту и согласие!");
+    return;
+  }
+
   closeCheckoutModal();
   document.getElementById('paymentModal').classList.remove('hidden');
 }
 
+// ==================== ОПЛАТА ====================
 function closePaymentModal() {
   document.getElementById('paymentModal').classList.add('hidden');
 }
 
-function switchPaymentTab(tab) {
-  const cardSection = document.getElementById('cardPaymentSection');
-  const kaspiSection = document.getElementById('kaspiPaymentSection');
-  const cardTab = document.getElementById('tabCard');
-  const kaspiTab = document.getElementById('tabKaspi');
+function switchPaymentTab(type) {
+  const cardSec = document.getElementById('cardPaymentSection');
+  const kaspiSec = document.getElementById('kaspiPaymentSection');
+  const tabCard = document.getElementById('tabCard');
+  const tabKaspi = document.getElementById('tabKaspi');
 
-  if (tab === 'card') {
-    cardSection.classList.remove('hidden');
-    kaspiSection.classList.add('hidden');
-    cardTab.className = 'flex-1 py-2 rounded-xl text-xs font-semibold bg-blue-600 text-white shadow-sm';
-    kaspiTab.className = 'flex-1 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600';
+  if (type === 'card') {
+    cardSec.classList.remove('hidden');
+    kaspiSec.classList.add('hidden');
+    tabCard.className = "flex-1 py-2 rounded-xl text-xs font-semibold bg-blue-600 text-white shadow-sm transition";
+    tabKaspi.className = "flex-1 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 transition";
   } else {
-    cardSection.classList.add('hidden');
-    kaspiSection.classList.remove('hidden');
-    kaspiTab.className = 'flex-1 py-2 rounded-xl text-xs font-semibold bg-red-600 text-white shadow-sm';
-    cardTab.className = 'flex-1 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600';
+    cardSec.classList.add('hidden');
+    kaspiSec.classList.remove('hidden');
+    tabKaspi.className = "flex-1 py-2 rounded-xl text-xs font-semibold bg-red-600 text-white shadow-sm transition";
+    tabCard.className = "flex-1 py-2 rounded-xl text-xs font-semibold bg-slate-100 text-slate-600 transition";
   }
 }
 
 function processPayment(e) {
-  e.preventDefault();
-  const btn = document.getElementById('paySubmitBtn');
-  btn.disabled = true;
-  btn.innerText = 'Обработка платежа...';
-
-  setTimeout(() => {
-    btn.disabled = false;
-    btn.innerText = 'Оплатить заказ';
-    closePaymentModal();
-    state.cart = [];
-    saveCart();
-    showToast('Успешно! Заказ оформлен.');
-  }, 1800);
+  if (e) e.preventDefault();
+  closePaymentModal();
+  cart = [];
+  saveCart();
+  showToast("🎉 Заказ оплачен! Менеджер свяжется с вами.");
 }
 
-// Уведомления (Toast)
+// ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
+function switchTab(tab) {
+  if (tab === 'home') {
+    activeCategory = 'all';
+    renderProducts();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    showToast("Раздел доступен в мобильной версии");
+  }
+}
+
 function showToast(msg) {
   const toast = document.getElementById('toast');
   document.getElementById('toastMsg').innerText = msg;
@@ -294,28 +444,4 @@ function showToast(msg) {
   setTimeout(() => {
     toast.classList.add('hidden');
   }, 2500);
-}
-
-// Переключение табов нижней навигации
-function switchTab(tab) {
-  state.currentTab = tab;
-  document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.add('text-slate-400'));
-  
-  if (tab === 'home') {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  } else if (tab === 'cart') {
-    openCartModal();
-  } else if (tab === 'fav') {
-    state.category = 'all';
-    const container = document.getElementById('productsGrid');
-    const favProducts = products.filter(p => state.favorites.includes(p.id));
-    
-    if (favProducts.length === 0) {
-      showToast('В избранном пока нет товаров');
-    } else {
-      showToast(`Избранное: ${favProducts.length} тов.`);
-    }
-  } else if (tab === 'profile') {
-    showToast('Кабинет пользователя');
-  }
 }

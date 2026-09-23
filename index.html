@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>B-SHOP — Мобильный интернет-магазин</title>
+  <title>B-SHOP — Аксессуары и Премиум Гаджеты</title>
   
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS & Bootstrap Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  
-  <!-- Кастомные стили -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased pb-24 selection:bg-blue-500 selection:text-white">
@@ -18,7 +15,7 @@
   <!-- ==================== ШАПКА / HEADER ==================== -->
   <header class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100 px-4 py-3">
     <div class="max-w-md mx-auto flex items-center justify-between gap-3">
-      <!-- Логотип -->
+      <!-- Логотип B-SHOP -->
       <div class="flex items-center space-x-2">
         <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white font-black text-lg shadow-md shadow-blue-500/20">
           B
@@ -29,11 +26,11 @@
         </div>
       </div>
 
-      <!-- Поиск и фильтры -->
+      <!-- Поиск -->
       <div class="flex items-center space-x-2">
         <div class="relative">
           <i class="bi bi-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-          <input type="text" id="searchInput" placeholder="Поиск товаров..." 
+          <input type="text" id="searchInput" placeholder="Поиск устройств..." 
                  class="w-36 sm:w-48 pl-8 pr-3 py-1.5 bg-slate-100 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-blue-500/30 transition">
         </div>
       </div>
@@ -43,31 +40,31 @@
   <!-- ==================== ОСНОВНОЙ КОНТЕНТ ==================== -->
   <main class="max-w-md mx-auto px-4 pt-4 space-y-5">
 
-    <!-- Промо Баннеры (Слайдер) -->
+    <!-- Баннеры -->
     <section class="flex space-x-3 overflow-x-auto no-scrollbar snap-x snap-mandatory py-1">
       <div class="snap-center shrink-0 w-full bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-4 text-white shadow-lg shadow-blue-500/15 relative overflow-hidden flex flex-col justify-between h-36">
-        <div class="z-10 max-w-[65%]">
-          <span class="bg-white/20 backdrop-blur-md text-[10px] font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">Акция недели</span>
-          <h2 class="text-lg font-bold mt-1 leading-tight">Скидки до -30% на Apple & Samsung</h2>
+        <div class="z-10 max-w-[70%]">
+          <span class="bg-white/20 backdrop-blur-md text-[10px] font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">Спецпредложение</span>
+          <h2 class="text-lg font-bold mt-1 leading-tight">Премиум станции 3-в-1 с MagSafe</h2>
         </div>
-        <button onclick="filterCategory('phones')" class="z-10 w-max bg-white text-blue-600 text-xs font-bold px-3 py-1.5 rounded-xl active:scale-95 transition">Смотреть</button>
-        <i class="bi bi-phone-vibe absolute -right-3 -bottom-4 text-8xl text-white/10 pointer-events-none"></i>
+        <button onclick="filterCategory('stations')" class="z-10 w-max bg-white text-blue-600 text-xs font-bold px-3 py-1.5 rounded-xl active:scale-95 transition">Смотреть</button>
+        <i class="bi bi-lightning-charge absolute -right-3 -bottom-4 text-8xl text-white/10 pointer-events-none"></i>
       </div>
 
       <div class="snap-center shrink-0 w-full bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl p-4 text-white shadow-lg relative overflow-hidden flex flex-col justify-between h-36">
-        <div class="z-10 max-w-[65%]">
+        <div class="z-10 max-w-[70%]">
           <span class="bg-white/20 backdrop-blur-md text-[10px] font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">Kaspi Red</span>
-          <h2 class="text-lg font-bold mt-1 leading-tight">Рассрочка 0-0-12 на все товары</h2>
+          <h2 class="text-lg font-bold mt-1 leading-tight">Рассрочка 0-0-12 на звук и часы</h2>
         </div>
-        <button onclick="filterCategory('all')" class="z-10 w-max bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-xl active:scale-95 transition">Выбрать</button>
-        <i class="bi bi-qr-code-scan absolute -right-3 -bottom-4 text-8xl text-white/10 pointer-events-none"></i>
+        <button onclick="filterCategory('audio')" class="z-10 w-max bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-xl active:scale-95 transition">Выбрать</button>
+        <i class="bi bi-headphones absolute -right-3 -bottom-4 text-8xl text-white/10 pointer-events-none"></i>
       </div>
     </section>
 
-    <!-- Категории -->
+    <!-- Фильтры и категории -->
     <section>
       <div class="flex items-center justify-between mb-2.5">
-        <h3 class="font-bold text-sm text-slate-800">Категории</h3>
+        <h3 class="font-bold text-sm text-slate-800">Категории (от 20 000 ₸)</h3>
         <select id="sortSelect" class="bg-transparent text-xs text-slate-500 font-medium focus:outline-none">
           <option value="default">По умолчанию</option>
           <option value="price-asc">Сначала дешевле</option>
@@ -77,19 +74,19 @@
       </div>
 
       <div class="flex space-x-2 overflow-x-auto no-scrollbar pb-1">
-        <button onclick="filterCategory('all')" class="category-btn bg-blue-600 text-white px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap shadow-sm shadow-blue-200 transition">Все</button>
-        <button onclick="filterCategory('phones')" class="category-btn bg-slate-100 text-slate-600 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition">Смартфоны</button>
-        <button onclick="filterCategory('laptops')" class="category-btn bg-slate-100 text-slate-600 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition">Ноутбуки</button>
-        <button onclick="filterCategory('audio')" class="category-btn bg-slate-100 text-slate-600 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition">Наушники</button>
-        <button onclick="filterCategory('watches')" class="category-btn bg-slate-100 text-slate-600 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition">Часы</button>
-        <button onclick="filterCategory('gadgets')" class="category-btn bg-slate-100 text-slate-600 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition">Гаджеты</button>
+        <button onclick="filterCategory('all')" class="category-btn bg-blue-600 text-white px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap shadow-sm shadow-blue-200 transition">Все (45)</button>
+        <button onclick="filterCategory('chargers')" class="category-btn bg-slate-100 text-slate-600 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition">Зарядка и станции</button>
+        <button onclick="filterCategory('audio')" class="category-btn bg-slate-100 text-slate-600 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition">Аудио и акустика</button>
+        <button onclick="filterCategory('watches')" class="category-btn bg-slate-100 text-slate-600 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition">Смарт-часы</button>
+        <button onclick="filterCategory('stations')" class="category-btn bg-slate-100 text-slate-600 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition">Док-станции</button>
+        <button onclick="filterCategory('gadgets')" class="category-btn bg-slate-100 text-slate-600 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition">Авто и гаджеты</button>
       </div>
     </section>
 
-    <!-- Сетка товаров (Мобильная 2 колонки) -->
+    <!-- Сетка товаров -->
     <section>
       <div id="productsGrid" class="grid grid-cols-2 gap-3">
-        <!-- Товары генерируются через script.js -->
+        <!-- Динамическая загрузка товаров -->
       </div>
     </section>
 
@@ -97,21 +94,24 @@
     <footer class="pt-8 pb-4 border-t border-slate-200 text-slate-500 text-xs space-y-4">
       <div class="space-y-2">
         <h4 class="font-bold text-slate-800 text-sm">B-SHOP Казахстан</h4>
-        <p>Ваш надежный магазин оригинальной электроники и гаджетов с быстрой доставкой по Алматы и всему Казахстану.</p>
+        <p>Интернет-магазин премиальных аксессуаров, наушников, смарт-часов и зарядных станций в Алматы.</p>
       </div>
 
-      <div class="grid grid-cols-2 gap-2 text-[11px] pt-2 border-t border-slate-100">
+      <div class="grid grid-cols-2 gap-3 text-[11px] pt-2 border-t border-slate-100">
         <div>
-          <p class="font-semibold text-slate-700 mb-1">Контакты</p>
+          <p class="font-bold text-slate-700 mb-1.5">Покупателям</p>
+          <ul class="space-y-1">
+            <li><a href="delivery.html" class="hover:text-blue-600 hover:underline">Доставка и оплата</a></li>
+            <li><a href="returns.html" class="hover:text-blue-600 hover:underline">Возврат и обмен</a></li>
+            <li><a href="privacy.html" target="_blank" class="hover:text-blue-600 hover:underline">Политика конфиденциальности</a></li>
+            <li><a href="offer.html" target="_blank" class="hover:text-blue-600 hover:underline">Публичная оферта</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold text-slate-700 mb-1.5">Контакты</p>
           <p>📞 +7 (707) 000-00-00</p>
           <p>📍 г. Алматы, пр. Абая 150</p>
           <p>⏰ 10:00 - 20:00 Ежедневно</p>
-        </div>
-        <div>
-          <p class="font-semibold text-slate-700 mb-1">Информация</p>
-          <a href="#" class="block hover:underline">Гарантия и возврат</a>
-          <a href="#" class="block hover:underline">Доставка и оплата</a>
-          <a href="#" class="block hover:underline">Политика конфиденциальности</a>
         </div>
       </div>
 
@@ -126,7 +126,7 @@
     </footer>
   </main>
 
-  <!-- ==================== НИЖНЯЯ НАВИГАЦИЯ / BOTTOM NAV ==================== -->
+  <!-- ==================== НИЖНЯЯ НАВИГАЦИЯ ==================== -->
   <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-t border-slate-200 pb-safe pt-2">
     <div class="max-w-md mx-auto flex items-center justify-around px-2">
       <button onclick="switchTab('home')" class="nav-btn flex flex-col items-center text-blue-600 transition">
@@ -152,11 +152,11 @@
     </div>
   </nav>
 
-  <!-- ==================== МОДАЛЬНОЕ ОКНО ТОВАРА ==================== -->
+  <!-- МОДАЛЬНОЕ ОКНО ТОВАРА -->
   <div id="productModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-end sm:items-center justify-center">
     <div class="bg-white w-full max-w-md rounded-t-3xl sm:rounded-2xl p-5 max-h-[85vh] overflow-y-auto animate-slide-up space-y-4">
       <div class="flex items-center justify-between border-b pb-2">
-        <span class="text-xs font-semibold text-slate-400">Карточка товара</span>
+        <span class="text-xs font-semibold text-slate-400">Характеристики товара</span>
         <button onclick="closeProductModal()" class="text-slate-400 hover:text-slate-600 text-lg">
           <i class="bi bi-x-circle-fill"></i>
         </button>
@@ -178,7 +178,7 @@
     </div>
   </div>
 
-  <!-- ==================== ШТОРКА КОРЗИНЫ ==================== -->
+  <!-- ШТОРКА КОРЗИНЫ -->
   <div id="cartModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-end justify-center">
     <div class="bg-white w-full max-w-md rounded-t-3xl p-5 max-h-[85vh] flex flex-col animate-slide-up">
       <div class="flex items-center justify-between pb-3 border-b">
@@ -188,9 +188,7 @@
         </button>
       </div>
 
-      <div id="cartItemsContainer" class="flex-1 overflow-y-auto py-3 space-y-3">
-        <!-- Товары корзины -->
-      </div>
+      <div id="cartItemsContainer" class="flex-1 overflow-y-auto py-3 space-y-3"></div>
 
       <div id="cartFooter" class="pt-3 border-t space-y-3">
         <div class="flex items-center justify-between font-bold text-base">
@@ -198,49 +196,62 @@
           <span id="cartTotalPrice" class="text-blue-600 text-lg">0 ₸</span>
         </div>
         <button onclick="openCheckout()" class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl shadow-md active:scale-95 transition">
-          Оформить заказ
+          Перейти к оформлению
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ==================== ШТОРКА ОФОРМЛЕНИЯ ЗАКАЗА ==================== -->
+  <!-- ШТОРКА ОФОРМЛЕНИЯ И СОГЛАСИЯ -->
   <div id="checkoutModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-end justify-center">
     <div class="bg-white w-full max-w-md rounded-t-3xl p-5 max-h-[90vh] overflow-y-auto animate-slide-up space-y-4">
       <div class="flex items-center justify-between border-b pb-2">
-        <h3 class="font-bold text-base text-slate-900">Детали доставки</h3>
+        <h3 class="font-bold text-base text-slate-900">Данные для доставки</h3>
         <button onclick="closeCheckoutModal()" class="text-slate-400 text-xl">
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
 
-      <form onsubmit="event.preventDefault(); openPayment();" class="space-y-3">
+      <form onsubmit="handleCheckoutSubmit(event)" class="space-y-3">
         <div>
           <label class="block text-xs font-semibold text-slate-600 mb-1">Имя и Фамилия</label>
-          <input type="text" required placeholder="Имя и Фамилия" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-blue-500/30 focus:outline-none">
+          <input type="text" required placeholder="Иван Иванов" class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs focus:ring-2 focus:ring-blue-500/30 focus:outline-none">
         </div>
         <div>
           <label class="block text-xs font-semibold text-slate-600 mb-1">Телефон</label>
-          <input type="tel" required placeholder="+7 (707) 000-00-00" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-blue-500/30 focus:outline-none">
+          <input type="tel" required placeholder="+7 (707) 000-00-00" class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs focus:ring-2 focus:ring-blue-500/30 focus:outline-none">
         </div>
         <div>
-          <label class="block text-xs font-semibold text-slate-600 mb-1">Адрес доставки (Алматы)</label>
-          <input type="text" required placeholder="Улица, дом, квартира" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-blue-500/30 focus:outline-none">
+          <label class="block text-xs font-semibold text-slate-600 mb-1">Адрес доставки</label>
+          <input type="text" required placeholder="г. Алматы, улица, дом, квартира" class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs focus:ring-2 focus:ring-blue-500/30 focus:outline-none">
+        </div>
+
+        <!-- Согласия с галочками -->
+        <div class="pt-2 border-t space-y-2 text-[11px] text-slate-600">
+          <label class="flex items-start space-x-2 cursor-pointer">
+            <input type="checkbox" id="checkPrivacy" required class="mt-0.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
+            <span>Я согласен на <a href="privacy.html" target="_blank" class="text-blue-600 underline hover:text-blue-800">обработку персональных данных</a></span>
+          </label>
+
+          <label class="flex items-start space-x-2 cursor-pointer">
+            <input type="checkbox" id="checkOffer" required class="mt-0.5 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
+            <span>Я принимаю условия <a href="offer.html" target="_blank" class="text-blue-600 underline hover:text-blue-800">публичной оферты</a></span>
+          </label>
         </div>
 
         <div class="pt-2 border-t flex items-center justify-between">
-          <span class="text-xs text-slate-500">К оплате:</span>
+          <span class="text-xs text-slate-500">Сумма заказа:</span>
           <span id="checkoutTotal" class="font-bold text-slate-900">0 ₸</span>
         </div>
 
-        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl active:scale-95 transition">
+        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl active:scale-95 transition shadow-md shadow-blue-500/20">
           Перейти к оплате
         </button>
       </form>
     </div>
   </div>
 
-  <!-- ==================== ШТОРКА ОПЛАТЫ (Kaspi QR & Card) ==================== -->
+  <!-- ШТОРКА ОПЛАТЫ -->
   <div id="paymentModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-end justify-center">
     <div class="bg-white w-full max-w-md rounded-t-3xl p-5 max-h-[90vh] overflow-y-auto animate-slide-up space-y-4">
       <div class="flex items-center justify-between border-b pb-2">
@@ -250,7 +261,6 @@
         </button>
       </div>
 
-      <!-- Переключатель видов оплаты -->
       <div class="flex bg-slate-100 p-1 rounded-2xl">
         <button id="tabCard" onclick="switchPaymentTab('card')" class="flex-1 py-2 rounded-xl text-xs font-semibold bg-blue-600 text-white shadow-sm transition">
           Банковская карта
@@ -260,35 +270,32 @@
         </button>
       </div>
 
-      <!-- Секция банковской карты -->
       <div id="cardPaymentSection" class="space-y-3">
         <form onsubmit="processPayment(event)" class="space-y-3">
           <div>
             <label class="block text-[11px] font-semibold text-slate-500 mb-1">Номер карты</label>
-            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" required class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs focus:ring-2 focus:ring-blue-500/30 focus:outline-none">
+            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" required class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs">
           </div>
           <div class="grid grid-cols-2 gap-2">
             <div>
               <label class="block text-[11px] font-semibold text-slate-500 mb-1">Срок (ММ/ГГ)</label>
-              <input type="text" placeholder="12/28" maxlength="5" required class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs focus:ring-2 focus:ring-blue-500/30 focus:outline-none">
+              <input type="text" placeholder="12/28" maxlength="5" required class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs">
             </div>
             <div>
               <label class="block text-[11px] font-semibold text-slate-500 mb-1">CVC/CVV</label>
-              <input type="password" placeholder="•••" maxlength="3" required class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs focus:ring-2 focus:ring-blue-500/30 focus:outline-none">
+              <input type="password" placeholder="•••" maxlength="3" required class="w-full px-3 py-2.5 bg-slate-50 border rounded-xl text-xs">
             </div>
           </div>
-
-          <button id="paySubmitBtn" type="submit" class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl shadow-md active:scale-95 transition mt-2">
+          <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3.5 rounded-xl shadow-md active:scale-95 transition mt-2">
             Оплатить заказ
           </button>
         </form>
       </div>
 
-      <!-- Секция Kaspi QR -->
       <div id="kaspiPaymentSection" class="hidden text-center py-4 space-y-3">
-        <p class="text-xs text-slate-500">Отсканируйте QR-код в приложении Kaspi.kz для оплаты</p>
+        <p class="text-xs text-slate-500">Отсканируйте QR-код через Kaspi.kz</p>
         <div class="w-48 h-48 mx-auto border-4 border-red-500/20 rounded-2xl p-2 bg-white shadow-inner flex items-center justify-center">
-          <img id="kaspiQrCodeImg" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=KaspiPayDemoOrder" alt="Kaspi QR" class="w-full h-full object-contain">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=KaspiPayBSHOP" alt="Kaspi QR" class="w-full h-full object-contain">
         </div>
         <p class="text-[10px] text-slate-400">Ожидание подтверждения оплаты...</p>
         <button onclick="processPayment(event)" class="w-full bg-red-600 text-white font-bold py-3 rounded-xl active:scale-95 transition">
@@ -298,13 +305,12 @@
     </div>
   </div>
 
-  <!-- ==================== ВСПОМОГАТЕЛЬНОЕ УВЕДОМЛЕНИЕ (TOAST) ==================== -->
+  <!-- TOAST УВЕДОМЛЕНИЕ -->
   <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white px-4 py-2.5 rounded-2xl shadow-xl text-xs font-medium hidden animate-fade-in flex items-center space-x-2">
     <i class="bi bi-check-circle-fill text-green-400"></i>
     <span id="toastMsg">Сообщение</span>
   </div>
 
-  <!-- Подключение скрипта логики -->
   <script src="script.js"></script>
 </body>
 </html>
